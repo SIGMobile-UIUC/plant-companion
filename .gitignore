@@ -1,0 +1,3 @@
+# Local verification toolchain and generated artifacts.
+.tools/
+.verification/
