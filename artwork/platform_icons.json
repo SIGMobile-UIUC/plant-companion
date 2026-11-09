@@ -1,0 +1,333 @@
+﻿{
+    "source":  "artwork/AppLogo.png",
+    "sourceSha256":  "6a37d349ed249b8545c0c3e583405094eb6efe609abbc5f23629ad675c7a15bd",
+    "background":  "#163F2E",
+    "method":  "Nearest-neighbor sampling of the unchanged original with geometric placement; alpha composited only for opaque platform targets. No lettering or pixels redrawn.",
+    "optionalMonochrome":  "Omitted: a faithful standalone monochrome design was not supplied.",
+    "outputs":  [
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+                        "size":  48,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "86c3e29bb4d029e19b5fa8813757926a062d5af55461c51e0171535bea46d940",
+                        "bytes":  1973
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+                        "size":  48,
+                        "logoWidthFraction":  0.8,
+                        "opaque":  false,
+                        "mask":  "circle",
+                        "sha256":  "255bbface1b35066951121af115cf0aea3d32650db4c1a0934740e1aa6266364",
+                        "bytes":  1936
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+                        "size":  108,
+                        "logoWidthFraction":  0.5092592592592593,
+                        "opaque":  false,
+                        "mask":  "square",
+                        "sha256":  "2276d3a9ef6c56a701cee9d58a16e1d2d1dc67981be0a539b176da5473b33417",
+                        "bytes":  3552
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+                        "size":  72,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "e553ac6c04319cde39dfc109f0bdc8a1b0bccd1566e4002ec68f4a4f8018982c",
+                        "bytes":  3931
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+                        "size":  72,
+                        "logoWidthFraction":  0.8,
+                        "opaque":  false,
+                        "mask":  "circle",
+                        "sha256":  "c34a16a4baef7c0e997cee6304a41a9eeacff0984dfd0fa6834eabe38d34be95",
+                        "bytes":  3602
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+                        "size":  162,
+                        "logoWidthFraction":  0.5092592592592593,
+                        "opaque":  false,
+                        "mask":  "square",
+                        "sha256":  "5f85b2d44b8febdea622d2bd2aac24821f5c57fb1ae633819a74845cabb33903",
+                        "bytes":  7068
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+                        "size":  96,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "127e0c44b9ad4a0ba229b733c56de0403c1323e4e1e55f33200f80db022ed108",
+                        "bytes":  6268
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+                        "size":  96,
+                        "logoWidthFraction":  0.8,
+                        "opaque":  false,
+                        "mask":  "circle",
+                        "sha256":  "7bb279e7f6a70043d79e9f54fb5ab895a2cfca78e896e3b7e7b075c49cfdc3e0",
+                        "bytes":  5805
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+                        "size":  216,
+                        "logoWidthFraction":  0.5092592592592593,
+                        "opaque":  false,
+                        "mask":  "square",
+                        "sha256":  "4ef1357c5ef88e75038aa8ae16779acd6c35e7826fc4649cdcccbc4d1d76b212",
+                        "bytes":  11787
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+                        "size":  144,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "96107eaaafd2831fd2d081aa92d060bc3d5a4ee9d3f13222e7cdea10fd61e10c",
+                        "bytes":  12899
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+                        "size":  144,
+                        "logoWidthFraction":  0.8,
+                        "opaque":  false,
+                        "mask":  "circle",
+                        "sha256":  "c6fb68f15791bf0a514ea4767992465c7317e5771dc4110674b480155d9611cb",
+                        "bytes":  12125
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+                        "size":  324,
+                        "logoWidthFraction":  0.5092592592592593,
+                        "opaque":  false,
+                        "mask":  "square",
+                        "sha256":  "a36a861ba3d5705cd943b4967491ae45fae8a312a91f45b3f7d0c2660197ac8a",
+                        "bytes":  19149
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+                        "size":  192,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "5e69ef98ce011721108b091d67fd7d748bcda19d12999ac865801cc7083d8c5d",
+                        "bytes":  16813
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+                        "size":  192,
+                        "logoWidthFraction":  0.8,
+                        "opaque":  false,
+                        "mask":  "circle",
+                        "sha256":  "9af6560a5aaed84b869830e75ca6dba289e35013fe32dc17c18ef64f6b557f60",
+                        "bytes":  16997
+                    },
+                    {
+                        "path":  "app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+                        "size":  432,
+                        "logoWidthFraction":  0.5092592592592593,
+                        "opaque":  false,
+                        "mask":  "square",
+                        "sha256":  "d6fe678e245f0cfd7a10994efc313013e7ec1c5efe3a0c8dbb45e5cd3ff23072",
+                        "bytes":  22031
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png",
+                        "size":  40,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "62bb480b29f2f35324947c06a630cd2c495d21b3116b3913d516164145d3a108",
+                        "bytes":  1474
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png",
+                        "size":  60,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "a30946d3a913aa0b5b19969b1b4ce1c52430fbcbbe4b8242d0b74cb51db805b9",
+                        "bytes":  2816
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png",
+                        "size":  29,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "b17bb32d457fedd59d4802ba1f8185da3d9bcb880e617d584ceda2a2528b24ce",
+                        "bytes":  897
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png",
+                        "size":  58,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "bc72c6b1b0c4859c739bc0afad692bdd21b2030012f4d8a7f391c48eda1199e1",
+                        "bytes":  2621
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png",
+                        "size":  87,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "a618d2e2fde3c713f49bd247ab7920e9cf09ce81f3d15f4288bccbe1552bb07e",
+                        "bytes":  5319
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png",
+                        "size":  80,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "ad7038ea70287fa36c3ef9bf720548749b048057b833c777792b162bb9f86781",
+                        "bytes":  4324
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png",
+                        "size":  120,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "2b0a3332bc97baac46aa7e7027640740187e88d2935ab72c6f2ea2b59ef8ccb2",
+                        "bytes":  9273
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png",
+                        "size":  120,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "2b0a3332bc97baac46aa7e7027640740187e88d2935ab72c6f2ea2b59ef8ccb2",
+                        "bytes":  9273
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png",
+                        "size":  180,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "db261dd630cfffcd908cdbd9815fe0e9ea03959c867758ac6a4756f919cb0bae",
+                        "bytes":  16058
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png",
+                        "size":  20,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "cfb618fc25167a63846f817aa66abb921080dd3903e9202e05fe442070d35b4e",
+                        "bytes":  549
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png",
+                        "size":  40,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "62bb480b29f2f35324947c06a630cd2c495d21b3116b3913d516164145d3a108",
+                        "bytes":  1474
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png",
+                        "size":  76,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "ef26741bda7414806aba7f463c13c179148c6254b72a28fd589b2ce91932f66d",
+                        "bytes":  4050
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png",
+                        "size":  152,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "6710aeb1cc92f1fa973a6802efb5bc5f0f34819631a193c9955375775755ab38",
+                        "bytes":  13242
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+                        "size":  167,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "076db811a078cd723f9def8b7955a96d356b4e6018fbb3c2f29a23a37e8eb8c3",
+                        "bytes":  14839
+                    },
+                    {
+                        "path":  "app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+                        "size":  1024,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "5c89faea492fc0efa7a99353a86bf1d61d6a785fe005aea61c6a5742383db728",
+                        "bytes":  48462
+                    },
+                    {
+                        "path":  "app/web/icons/Icon-192.png",
+                        "size":  192,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "5e69ef98ce011721108b091d67fd7d748bcda19d12999ac865801cc7083d8c5d",
+                        "bytes":  16813
+                    },
+                    {
+                        "path":  "app/web/icons/Icon-maskable-192.png",
+                        "size":  192,
+                        "logoWidthFraction":  0.65,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "e59a275b52392090f5e3a2889f2da811f2a5357481aee7b5fb7153b38e2503e9",
+                        "bytes":  12720
+                    },
+                    {
+                        "path":  "app/web/icons/Icon-512.png",
+                        "size":  512,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "ccc6b4cbb1b7b43839692d9ecbef853e6953546518275d87bd13889d58c971e7",
+                        "bytes":  24077
+                    },
+                    {
+                        "path":  "app/web/icons/Icon-maskable-512.png",
+                        "size":  512,
+                        "logoWidthFraction":  0.65,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "bba1020787b860166fb713999a5ba3cef16cef494ec867e77b6aef08668a1f4b",
+                        "bytes":  24858
+                    },
+                    {
+                        "path":  "app/web/favicon.png",
+                        "size":  48,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "86c3e29bb4d029e19b5fa8813757926a062d5af55461c51e0171535bea46d940",
+                        "bytes":  1973
+                    },
+                    {
+                        "path":  "app/web/icons/apple-touch-icon.png",
+                        "size":  180,
+                        "logoWidthFraction":  0.87890625,
+                        "opaque":  true,
+                        "mask":  "square",
+                        "sha256":  "db261dd630cfffcd908cdbd9815fe0e9ea03959c867758ac6a4756f919cb0bae",
+                        "bytes":  16058
+                    }
+                ]
+}

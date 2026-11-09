@@ -1,66 +1,78 @@
 import '../models/device.dart';
-import '../models/plant.dart';
-import '../models/plant_profile.dart';
 import '../models/sensor_reading.dart';
+import 'sensor_gateway.dart';
+import 'simulation_config.dart';
+import 'simulated_environment.dart';
+import 'plant_simulation.dart';
+export 'sensor_gateway.dart' show SimulationMode;
+export 'plant_simulation.dart' show PlantSimulationContext;
 
-class FakeSensorRepository {
-  FakeSensorRepository({this.delay = const Duration(milliseconds: 850)});
+class FakeSensorRepository implements PlantSimulationGateway, DeviceGateway {
+  FakeSensorRepository({
+    Duration? delay,
+    Duration? discoveryDelay,
+    Duration? connectionDelay,
+    Duration? acquisitionDelay,
+    this.inventory,
+  }) : discoveryDelay =
+           discoveryDelay ?? delay ?? SimulationConfig.discoveryDelay,
+       connectionDelay =
+           connectionDelay ?? delay ?? SimulationConfig.connectionDelay,
+       acquisitionDelay =
+           acquisitionDelay ?? delay ?? SimulationConfig.acquisitionDelay {
+    if ([
+      this.discoveryDelay,
+      this.connectionDelay,
+      this.acquisitionDelay,
+    ].any((d) => d.isNegative)) {
+      throw ArgumentError('Simulator delays must be nonnegative.');
+    }
+  }
+  final Duration discoveryDelay, connectionDelay, acquisitionDelay;
 
-  final Duration delay;
-  int _sequence = 0;
+  /// Kept as an acquisition-delay alias for existing test/review adapters.
+  Duration get delay => acquisitionDelay;
+  final Future<List<Device>> Function()? inventory;
 
   static const demoDevice = Device(
-    id: 'esp32-demo-01',
-    name: 'ESP32 · Sprout 01',
+    id: 'device-1',
+    name: 'ESP32-Sim01',
     isConnected: true,
-    batteryVoltage: 3.87,
   );
 
+  @override
   Future<List<Device>> discoverDevices() async {
-    await Future<void>.delayed(delay);
-    return [demoDevice.withConnection(false)];
+    await Future<void>.delayed(discoveryDelay);
+    return inventory == null ? [demoDevice] : inventory!();
   }
 
+  @override
   Future<Device> connect(Device device, {bool simulateFailure = false}) async {
-    await Future<void>.delayed(delay);
-    if (simulateFailure) {
-      throw StateError(
-        'Demo connection failed. Try again or save without a device.',
+    await Future<void>.delayed(connectionDelay);
+    if (simulateFailure) throw StateError('Could not connect. Try again.');
+    return device.withConnection(true); // Candidate only, no saved assignment.
+  }
+
+  @override
+  Future<SensorReading> acquire(
+    Device device,
+    DateTime recordedAt, {
+    SensorReading? previousReading,
+    SimulationMode simulationMode = SimulationMode.environment,
+    PlantSimulationContext? plantContext,
+  }) async {
+    if (plantContext == null) {
+      throw ArgumentError(
+        'Local acquisition requires committed plant context.',
       );
     }
-    return device.withConnection(true);
-  }
-
-  Future<SensorReading> read(
-    PlantProfile profile,
-    DemoScenario scenario,
-  ) async {
-    await Future<void>.delayed(delay);
-    return makeReading(profile, scenario, DateTime.now());
-  }
-
-  SensorReading makeReading(
-    PlantProfile profile,
-    DemoScenario scenario,
-    DateTime timestamp,
-  ) {
-    // A deterministic small variation makes refresh visible and tests repeatable.
-    final variation = (_sequence++ % 5 - 2) / 20;
-    double comfortableValue(SensorMetric metric) {
-      final range = profile.rangeFor(metric);
-      return range.midpoint + (range.maximum - range.minimum) * variation;
-    }
-
-    return SensorReading(
-      recordedAt: timestamp,
-      soilMoisture: scenario == DemoScenario.thirsty
-          ? profile.rangeFor(SensorMetric.soilMoisture).minimum * .35
-          : comfortableValue(SensorMetric.soilMoisture),
-      temperature: comfortableValue(SensorMetric.temperature),
-      humidity: comfortableValue(SensorMetric.humidity),
-      light: scenario == DemoScenario.lowLight
-          ? profile.rangeFor(SensorMetric.light).minimum * .16
-          : comfortableValue(SensorMetric.light),
+    await Future<void>.delayed(acquisitionDelay);
+    return SimulatedEnvironment.sample(
+      device,
+      recordedAt,
+      previousReading: previousReading,
+      simulationMode: simulationMode,
+      plantContext: plantContext,
     );
   }
 }

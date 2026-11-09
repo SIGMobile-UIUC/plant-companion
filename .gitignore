@@ -1,3 +1,24 @@
 # Local verification toolchain and generated artifacts.
 .tools/
 .verification/
+
+# Removed implementation handoff artifacts must not return to version control.
+/review/
+
+# Flutter/Dart, native build and local IDE outputs; keep source and lockfiles.
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+coverage/
+.gradle/
+.kotlin/
+.cxx/
+.idea/
+*.iml
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

@@ -23,6 +23,9 @@ extension SensorMetricLabels on SensorMetric {
 class SensorReading {
   const SensorReading({
     required this.recordedAt,
+    this.id,
+    this.sourceDeviceId,
+    this.origin = 'manual',
     this.soilMoisture,
     this.temperature,
     this.humidity,
@@ -30,6 +33,9 @@ class SensorReading {
   });
 
   final DateTime recordedAt;
+  final String? id;
+  final String? sourceDeviceId;
+  final String origin;
   final double? soilMoisture;
   final double? temperature;
   final double? humidity;

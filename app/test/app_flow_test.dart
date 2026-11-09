@@ -5,16 +5,49 @@ import 'package:plant_companion/main.dart';
 import 'package:plant_companion/models/plant_profile.dart';
 import 'package:plant_companion/services/fake_sensor_repository.dart';
 import 'package:plant_companion/state/plant_store.dart';
+import 'package:plant_companion/widgets/companion_header.dart';
+import 'package:plant_companion/widgets/plant_card.dart';
+import 'fixtures/foundation_fixtures.dart';
+import 'fixtures/form_actions.dart';
+import 'package:plant_companion/models/plant_avatar_id.dart';
+import 'package:plant_companion/models/plant_form_input.dart';
+import 'package:plant_companion/models/device.dart';
 
-Future<PlantStore> mountApp(WidgetTester tester, {bool seedDemo = true}) async {
+class AppFlowGateway extends FakeSensorRepository {
+  AppFlowGateway() : super(delay: const Duration(milliseconds: 50));
+  bool failNext = false;
+  @override
+  Future<Device> connect(Device device, {bool simulateFailure = false}) {
+    final fail = failNext;
+    failNext = false;
+    return super.connect(device, simulateFailure: fail || simulateFailure);
+  }
+}
+
+Future<PlantStore> mountApp(
+  WidgetTester tester, {
+  bool seedDemo = true,
+  FakeSensorRepository? gateway,
+}) async {
   tester.view.physicalSize = const Size(390, 844);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
+  final persistence = memoryRepository(MutableClock(DateTime.now().toUtc()));
+  await tester.runAsync(() async {
+    await persistence.initialize();
+    if (!seedDemo) await persistence.deletePlant('plant-1');
+  });
   final store = PlantStore(
-    repository: FakeSensorRepository(delay: const Duration(milliseconds: 50)),
-    seedDemo: seedDemo,
+    persistence: persistence,
+    repository:
+        gateway ??
+        FakeSensorRepository(
+          delay: Duration.zero,
+          inventory: persistence.loadDevices,
+        ),
   );
+  await tester.runAsync(() => store.initialized);
   await tester.pumpWidget(
     ChangeNotifierProvider(
       create: (_) => store,
@@ -30,18 +63,31 @@ Future<void> tapVisible(WidgetTester tester, Finder finder) async {
   await tester.pumpAndSettle();
   await tester.ensureVisible(finder);
   await tester.pumpAndSettle();
-  await tester.tap(finder);
+  await tester.runAsync(() async {
+    await tester.tap(finder);
+    await Future<void>.delayed(const Duration(milliseconds: 160));
+  });
   await tester.pumpAndSettle();
 }
 
 Future<void> openAddPlant(WidgetTester tester) async {
-  await tapVisible(tester, find.text('Add Plant'));
+  await tapVisible(tester, find.byKey(const Key('add-plant-button')));
 }
 
+// Compatibility test helper: manually enters inputs; no production preset UI.
 Future<void> chooseProfile(WidgetTester tester, String label) async {
-  await tapVisible(tester, find.byKey(const Key('plant-type-field')));
-  await tester.tap(find.text(label).last);
-  await tester.pumpAndSettle();
+  final avatar = label == 'Snake Plant'
+      ? PlantAvatarId.snakePlant
+      : label == 'Peace Lily'
+      ? PlantAvatarId.peaceLily
+      : PlantAvatarId.pothos;
+  await tapVisible(tester, find.byKey(Key('avatar-${avatar.name}')));
+  await enterFormText(
+    tester,
+    'species-field',
+    label == 'Custom' ? 'Custom species' : scientificHint(avatar),
+  );
+  await fillCareRanges(tester, avatar: avatar);
 }
 
 void main() {
@@ -51,8 +97,8 @@ void main() {
       final store = await mountApp(tester);
       await openAddPlant(tester);
       await tapVisible(tester, find.byKey(const Key('save-plant-button')));
-      expect(find.text('Give your plant a nickname.'), findsOneWidget);
-      expect(find.text('Choose a plant type.'), findsOneWidget);
+      expect(find.text('This field is required.'), findsNWidgets(10));
+      expect(find.text('Please fill in all required fields.'), findsOneWidget);
       expect(store.plants, hasLength(1));
     },
   );
@@ -65,7 +111,7 @@ void main() {
     await tester.enterText(find.byKey(const Key('nickname-field')), 'Fernanda');
     await chooseProfile(tester, 'Pothos');
     await tapVisible(tester, find.byKey(const Key('save-plant-button')));
-    expect(find.text('My Plants'), findsOneWidget);
+    expect(find.byKey(const Key('open-menu')), findsOneWidget);
     expect(find.text('Fernanda'), findsOneWidget);
     expect(store.plants, hasLength(2));
     expect(store.plants.last.deviceId, isNull);
@@ -78,45 +124,64 @@ void main() {
       final store = await mountApp(tester);
       store.addPlant(nickname: 'Sunny', profile: PlantProfile.samples[2]);
       await tester.pumpAndSettle();
-      await tapVisible(tester, find.byKey(const Key('plant-card-plant-2')));
+      await tapVisible(tester, find.byKey(const Key('details-plant-2')));
       expect(find.byKey(const Key('details-nickname')), findsOneWidget);
       expect(
         tester.widget<Text>(find.byKey(const Key('details-nickname'))).data,
         'Sunny',
       );
-      expect(find.text('Unavailable'), findsNWidgets(8));
-      await tester.pageBack();
+      expect(find.text('Unavailable'), findsNothing);
+      expect(find.text('1250 lux'), findsOneWidget);
+      expect(store.plants.last.latestReading, isNull);
+      await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
-      await tapVisible(tester, find.byKey(const Key('plant-card-plant-1')));
+      await tapVisible(tester, find.byKey(const Key('details-plant-1')));
       expect(
         tester.widget<Text>(find.byKey(const Key('details-nickname'))).data,
-        'Moss',
+        'Florence',
       );
     },
   );
 
   testWidgets(
-    'refresh updates history and demo condition updates the shared list',
+    'header refresh updates persisted history and the shared homepage without demo controls',
     (tester) async {
       final store = await mountApp(tester);
-      await tapVisible(tester, find.byKey(const Key('plant-card-plant-1')));
+      await tapVisible(tester, find.byKey(const Key('details-plant-1')));
       final originalTimestamp = store.plants.first.latestReading!.recordedAt;
       await tester.ensureVisible(find.byKey(const Key('refresh-button')));
       await tester.tap(find.byKey(const Key('refresh-button')));
       await tester.pump();
-      expect(find.text('Refreshing…'), findsOneWidget);
+      expect(
+        tester
+            .widget<SpriteAction>(find.byKey(const Key('refresh-button')))
+            .onPressed,
+        isNull,
+      );
       await tester.pumpAndSettle();
-      expect(store.plants.first.readings, hasLength(4));
+      expect(store.plants.first.readings, hasLength(1));
+      final history = await tester.runAsync(
+        () => store.persistence.loadHistory('plant-1'),
+      );
+      expect(history, hasLength(2));
       expect(
         store.plants.first.latestReading!.recordedAt.isAfter(originalTimestamp),
         isTrue,
       );
-      await tapVisible(tester, find.byKey(const Key('demo-menu-button')));
-      await tapVisible(tester, find.byKey(const Key('demo-thirsty')));
-      expect(find.text('Soil is below your selected range.'), findsOneWidget);
-      await tester.pageBack();
+      expect(find.byKey(const Key('demo-menu-button')), findsNothing);
+      expect(find.byType(SnackBar), findsNothing);
+      await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
-      expect(find.text('Thirsty'), findsOneWidget);
+      expect(find.text('635.1 lux'), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is Image &&
+              widget.image is AssetImage &&
+              (widget.image as AssetImage).assetName.endsWith('faces/sad.png'),
+        ),
+        findsOneWidget,
+      );
     },
   );
 
@@ -126,10 +191,10 @@ void main() {
     final store = await mountApp(tester);
     await openAddPlant(tester);
     await tester.enterText(find.byKey(const Key('nickname-field')), 'Sprout');
-    await chooseProfile(tester, 'Monstera');
-    await tapVisible(tester, find.byKey(const Key('search-device')));
-    expect(find.text('Already assigned'), findsOneWidget);
-    expect(find.byKey(const Key('connect-device')), findsNothing);
+    await chooseProfile(tester, 'Peace Lily');
+    await tapVisible(tester, find.byKey(const Key('scan-devices-button')));
+    expect(find.text('Assigned to Florence'), findsOneWidget);
+    expect(find.byKey(const Key('connect-device-1')), findsNothing);
     await tapVisible(tester, find.byKey(const Key('save-plant-button')));
     expect(store.plants.last.deviceId, isNull);
   });
@@ -137,29 +202,34 @@ void main() {
   testWidgets(
     'search, failed connection, retry and save with a unique device work',
     (tester) async {
-      final store = await mountApp(tester);
-      store.unlinkDevice('plant-1');
-      await tester.pumpAndSettle();
+      final gateway = AppFlowGateway(),
+          store = await mountApp(tester, gateway: gateway);
+      await tester.runAsync(() => store.unlinkDevice('plant-1'));
       await openAddPlant(tester);
       await tester.enterText(
         find.byKey(const Key('nickname-field')),
         'Connected sprout',
       );
       await chooseProfile(tester, 'Pothos');
-      await tester.ensureVisible(find.byKey(const Key('search-device')));
-      await tester.tap(find.byKey(const Key('search-device')));
+      await tester.ensureVisible(find.byKey(const Key('scan-devices-button')));
+      await tester.tap(find.byKey(const Key('scan-devices-button')));
       await tester.pump();
-      expect(find.text('Searching for a simulated ESP32…'), findsOneWidget);
+      expect(find.text('Searching…'), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 60));
       await tester.pumpAndSettle();
-      await tapVisible(tester, find.byKey(const Key('fail-next-connection')));
-      await tester.ensureVisible(find.byKey(const Key('connect-device')));
-      await tester.tap(find.byKey(const Key('connect-device')));
+      gateway.failNext = true;
+      await tester.ensureVisible(find.byKey(const Key('connect-device-1')));
+      await tester.tap(find.byKey(const Key('connect-device-1')));
       await tester.pump();
-      expect(find.text('Connecting to simulated ESP32…'), findsOneWidget);
+      expect(find.text('Connecting…'), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 60));
       await tester.pumpAndSettle();
-      expect(find.text('Connection failed'), findsOneWidget);
-      await tapVisible(tester, find.byKey(const Key('retry-connection')));
-      expect(find.text('Connected · simulated'), findsOneWidget);
+      expect(
+        find.text('Could not connect. Save disconnected or try again.'),
+        findsOneWidget,
+      );
+      await tapVisible(tester, find.byKey(const Key('connect-device-1')));
+      expect(find.text('Selected for save'), findsWidgets);
       await tapVisible(tester, find.byKey(const Key('save-plant-button')));
       expect(store.plants.last.deviceId, FakeSensorRepository.demoDevice.id);
       expect(
@@ -171,13 +241,14 @@ void main() {
 
   testWidgets('empty state has a working Add Plant action', (tester) async {
     final store = await mountApp(tester, seedDemo: false);
-    expect(find.text('Your garden starts here'), findsOneWidget);
+    expect(find.byType(PlantCard), findsNothing);
+    expect(find.byKey(const Key('add-plant-button')), findsOneWidget);
     await openAddPlant(tester);
     await tester.enterText(
       find.byKey(const Key('nickname-field')),
       'First leaf',
     );
-    await chooseProfile(tester, 'Monstera');
+    await chooseProfile(tester, 'Peace Lily');
     await tapVisible(tester, find.byKey(const Key('save-plant-button')));
     expect(store.plants, hasLength(1));
     expect(find.text('First leaf'), findsOneWidget);
@@ -191,7 +262,7 @@ void main() {
     await tester.enterText(find.byKey(const Key('nickname-field')), 'Mystery');
     await chooseProfile(tester, 'Custom');
     await tester.enterText(
-      find.byKey(const Key('custom-type-field')),
+      find.byKey(const Key('species-field')),
       'Mystery plant',
     );
     await tester.enterText(
@@ -199,7 +270,7 @@ void main() {
       '101',
     );
     await tapVisible(tester, find.byKey(const Key('save-plant-button')));
-    expect(find.text('Use 0 to 100.'), findsOneWidget);
+    expect(find.text('Use 0–100%.'), findsOneWidget);
     expect(store.plants, hasLength(1));
     await tester.enterText(find.byKey(const Key('range-soilMoisture-0')), '25');
     await tapVisible(tester, find.byKey(const Key('save-plant-button')));
@@ -215,10 +286,10 @@ void main() {
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
-    await tapVisible(tester, find.byKey(const Key('plant-card-plant-1')));
+    await tapVisible(tester, find.byKey(const Key('details-plant-1')));
     await tapVisible(tester, find.byKey(const Key('refresh-button')));
     expect(tester.takeException(), isNull);
-    await tester.pageBack();
+    await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     await openAddPlant(tester);
     await chooseProfile(tester, 'Custom');
