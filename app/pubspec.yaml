@@ -1,5 +1,5 @@
 name: plant_companion
-description: SIGmobile's in-memory houseplant monitoring demo.
+description: SIGmobile Plant Companion with local SQLite and simulated sensors.
 publish_to: none
 version: 1.0.0+1
 
@@ -10,8 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.5+1
-  flex_color_scheme: ^8.3.1
-  cupertino_icons: ^1.0.8
+  drift: ^2.35.3
+  drift_flutter: ^0.3.1
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +21,23 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/fonts/PixelifySans/OFL.txt
+    - assets/fonts/Inter/OFL.txt
+    - assets/plant_companion/plants/
+    - assets/plant_companion/faces/
+    - assets/plant_companion/needs/
+    - assets/plant_companion/sensors/
+    - assets/plant_companion/actions/
+    - assets/plant_companion/branding/
+  fonts:
+    - family: Pixelify Sans
+      fonts:
+        - asset: assets/fonts/PixelifySans/PixelifySans-Variable.ttf
+          weight: 700
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Variable.ttf
+          weight: 400
+        - asset: assets/fonts/Inter/Inter-Variable.ttf
+          weight: 500

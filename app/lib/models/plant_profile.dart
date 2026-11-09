@@ -42,12 +42,14 @@ class PlantProfile {
     SensorMetric.light: TargetRange(500, 2000),
   };
 
+  // Compatibility for old callers/records; no longer offered by the Add menu.
+  static const legacyMonstera = PlantProfile(
+    id: 'monstera',
+    plantType: 'Monstera',
+    ranges: demonstrationRanges,
+  );
+
   static const samples = [
-    PlantProfile(
-      id: 'monstera',
-      plantType: 'Monstera',
-      ranges: demonstrationRanges,
-    ),
     PlantProfile(
       id: 'pothos',
       plantType: 'Pothos',
@@ -55,7 +57,12 @@ class PlantProfile {
     ),
     PlantProfile(
       id: 'snake',
-      plantType: 'Snake plant',
+      plantType: 'Snake Plant',
+      ranges: demonstrationRanges,
+    ),
+    PlantProfile(
+      id: 'peace_lily',
+      plantType: 'Peace Lily',
       ranges: demonstrationRanges,
     ),
     PlantProfile(

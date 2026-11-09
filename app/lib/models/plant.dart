@@ -1,52 +1,61 @@
 import 'plant_profile.dart';
 import 'sensor_reading.dart';
-
-enum DemoScenario { comfortable, thirsty, lowLight, disconnected, staleData }
-
-extension DemoScenarioLabels on DemoScenario {
-  String get label => switch (this) {
-    DemoScenario.comfortable => 'Comfortable',
-    DemoScenario.thirsty => 'Thirsty',
-    DemoScenario.lowLight => 'Low light',
-    DemoScenario.disconnected => 'Disconnected',
-    DemoScenario.staleData => 'Stale data',
-  };
-}
+import 'plant_avatar_id.dart';
 
 class Plant {
   const Plant({
     required this.id,
     required this.nickname,
     required this.profile,
+    String? speciesName,
+    this.avatar = PlantAvatarId.pothos,
     this.deviceId,
     this.readings = const [],
-    this.demoScenario = DemoScenario.comfortable,
-  });
+    this.createdAt,
+    this.updatedAt,
+    this.displayOrder = 0,
+    this.fullName,
+    this.profileRevision = 0,
+  }) : _speciesName = speciesName;
 
   final String id;
   final String nickname;
   final PlantProfile profile;
+  final String? _speciesName;
+  String get speciesName => _speciesName ?? profile.plantType;
+  final PlantAvatarId avatar;
   final String? deviceId;
+
+  /// List snapshots carry only the latest packet. Retrieve retained history
+  /// explicitly through PlantRepository.loadHistory when a caller needs it.
   final List<SensorReading> readings;
-  final DemoScenario demoScenario;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
+  final int displayOrder;
+  final String? fullName;
+  final int profileRevision;
 
   SensorReading? get latestReading => readings.isEmpty ? null : readings.first;
 
-  Plant withoutDevice() => Plant(
+  Plant withoutDevice() => _copy(deviceId: null, readings: readings);
+  Plant withReadings(List<SensorReading> updated) =>
+      _copy(deviceId: deviceId, readings: updated);
+
+  Plant _copy({
+    required String? deviceId,
+    required List<SensorReading> readings,
+  }) => Plant(
     id: id,
     nickname: nickname,
     profile: profile,
-    readings: readings,
-    demoScenario: demoScenario,
+    speciesName: speciesName,
+    avatar: avatar,
+    deviceId: deviceId,
+    readings: List.unmodifiable(readings),
+    createdAt: createdAt,
+    updatedAt: updatedAt,
+    displayOrder: displayOrder,
+    fullName: fullName,
+    profileRevision: profileRevision,
   );
-
-  Plant withReadings(List<SensorReading> updated, {DemoScenario? scenario}) =>
-      Plant(
-        id: id,
-        nickname: nickname,
-        profile: profile,
-        deviceId: deviceId,
-        readings: List.unmodifiable(updated),
-        demoScenario: scenario ?? demoScenario,
-      );
 }

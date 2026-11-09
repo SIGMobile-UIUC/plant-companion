@@ -1,12 +1,5 @@
-# Plant Companion Flutter app
+# Plant Companion Flutter application
 
-See the [repository README](../README.md) for setup, launch commands, the demonstration flow, code organization, data semantics, and verification limits.
+This directory contains the SIGMobile Plant Companion application, including its SQLite persistence, simulated devices, tests and platform resources.
 
-Quick start with Flutter installed:
-
-```sh
-flutter pub get
-flutter run -d chrome
-```
-
-All plants and readings are in memory and reset when the app restarts.
+See the [repository README](../README.md) for setup, features, simulation behavior, test/build commands and current limitations.

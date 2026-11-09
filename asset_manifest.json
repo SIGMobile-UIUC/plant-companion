@@ -1,0 +1,396 @@
+{
+  "project": "SIGMobile Plant Companion",
+  "figma_file": "https://www.figma.com/design/VKBrJuR8eTByeOF7gppbPz",
+  "description": "Original plant, face, sensor, action and branding PNGs from Figma, with the approved cold thermometer, excess slash and AppLogo. Exact source hashes and dimensions are preserved; platform conversions are inventoried separately.",
+  "total_unique_source_pngs": 27,
+  "asset_root": "app/assets/plant_companion/",
+  "assets": [
+    {
+      "path": "app/assets/plant_companion/plants/snake_plant.png",
+      "source_node": "77:3",
+      "figma_image_hash": "b81341471d20fab46238dd62923f52975e9b46c7",
+      "source_dimensions_px": [
+        58,
+        92
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 1340,
+      "sha256": "0d715e7bb02efd2cb46396fe7d6c45e8b78b8c260837d98be68cf3b70232898f",
+      "figma_adler32": "453b7f25"
+    },
+    {
+      "path": "app/assets/plant_companion/plants/pothos.png",
+      "source_node": "95:9",
+      "figma_image_hash": "e136acc185c4a468cec342d9278eba2ece515030",
+      "source_dimensions_px": [
+        70,
+        85
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 1943,
+      "sha256": "99aee8affad2e1606ffd0a48a8c493b68f67ff61728df7ca40a42a542800c4d5",
+      "figma_adler32": "9483a0c0"
+    },
+    {
+      "path": "app/assets/plant_companion/plants/peace_lily.png",
+      "source_node": "77:111",
+      "figma_image_hash": "b6a044e07ce28f01ff66a7e1447bdd22a3bedeaf",
+      "source_dimensions_px": [
+        70,
+        86
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 1506,
+      "sha256": "d055c52dc13ed432467ef56acca4b853a766f1551a3ae5501f4f68ec3037d209",
+      "figma_adler32": "9230c5d4"
+    },
+    {
+      "path": "app/assets/plant_companion/faces/sleeping.png",
+      "source_node": "82:30",
+      "figma_image_hash": "ea58950bbffaefba5eead04d0b393464a27a8f27",
+      "source_dimensions_px": [
+        64,
+        19
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 372,
+      "sha256": "d072442b8e90e19697ba95e2e9bd9fd00089b8bd269f573ab68736717540ae30",
+      "figma_adler32": "f9b496f1"
+    },
+    {
+      "path": "app/assets/plant_companion/faces/sad.png",
+      "source_node": "82:34",
+      "figma_image_hash": "c6a90b2f0de39dc0cfbc8840def7cf75331b5b03",
+      "source_dimensions_px": [
+        64,
+        21
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 391,
+      "sha256": "116c7c969902872880e5fd669d1954727056c7de87bc0de3364e74922cd58f29",
+      "figma_adler32": "db2c9e06"
+    },
+    {
+      "path": "app/assets/plant_companion/faces/happy.png",
+      "source_node": "82:38",
+      "figma_image_hash": "fdccf2aa6848bb3ac2d4da033ef28bfc58c8452f",
+      "source_dimensions_px": [
+        76,
+        29
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 453,
+      "sha256": "13704374ece105492be400f1133fea7563d3f8d72942217b22f2c4ea9e93f353",
+      "figma_adler32": "a45eb3de"
+    },
+    {
+      "path": "app/assets/plant_companion/needs/thought_bubble_tight.png",
+      "source_node": "82:42",
+      "figma_image_hash": "ce0b212d22f4827cc0bff25e4cf9abc18b3610bc",
+      "source_dimensions_px": [
+        74,
+        88
+      ],
+      "format": "png",
+      "color_mode": "RGBA",
+      "bytes": 3652,
+      "sha256": "a7cbe5ffb36733d8c23379afd2a5aefdff1c7b2877d98374d0023b5c9aa7b8b0",
+      "figma_adler32": "506b002e"
+    },
+    {
+      "path": "app/assets/plant_companion/needs/happy_heart.png",
+      "source_node": "82:46",
+      "figma_image_hash": "7d9577c761e5c3c000ade6df668801f2af208c5e",
+      "source_dimensions_px": [
+        78,
+        71
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 688,
+      "sha256": "309d0643b5e97e28c0b821cde4b85286bad44233af87c75fb5b678724e261ab0",
+      "figma_adler32": "5490a141"
+    },
+    {
+      "path": "app/assets/plant_companion/sensors/soil_moisture.png",
+      "source_node": "82:53",
+      "figma_image_hash": "68a0d4ccb1c7e047248027889b77711fedd327a7",
+      "source_dimensions_px": [
+        36,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 374,
+      "sha256": "d4632e4a941eab0c644e732fb7d1a67351534f61c7c6a3afdb7fa300233a98f8",
+      "figma_adler32": "ef4ea261"
+    },
+    {
+      "path": "app/assets/plant_companion/sensors/light.png",
+      "source_node": "82:57",
+      "figma_image_hash": "eeb0492a6d7aa24ece80f443c87f9a24c89a2fad",
+      "source_dimensions_px": [
+        46,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 494,
+      "sha256": "4187467982dc07959ffc66dab38d78fb1971263556422dfa98abbc5966519334",
+      "figma_adler32": "df41e9b8"
+    },
+    {
+      "path": "app/assets/plant_companion/sensors/temperature.png",
+      "source_node": "82:61",
+      "figma_image_hash": "9f29ece6f49896a9a2375f40ebe7cbc1d92f0265",
+      "source_dimensions_px": [
+        24,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 411,
+      "sha256": "c70a8c495a2a65ff72bff7ad11d767146db36e50e044470729a0a213cdb2dec9",
+      "figma_adler32": "8925af0d"
+    },
+    {
+      "path": "app/assets/plant_companion/sensors/humidity.png",
+      "source_node": "82:65",
+      "figma_image_hash": "832d72cc3d51759da131ba45096629b40b676f7f",
+      "source_dimensions_px": [
+        44,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 541,
+      "sha256": "e1d62967cf38532f2b5539c514cd1ddce87796fb4fd43bc6031609dd176bbb2a",
+      "figma_adler32": "1d0cf2f6"
+    },
+    {
+      "path": "app/assets/plant_companion/sensors/current_marker.png",
+      "source_node": "82:69",
+      "figma_image_hash": "dc599c3cdb3b2293aaa0a62abd4b7ce8bad60406",
+      "source_dimensions_px": [
+        22,
+        56
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 286,
+      "sha256": "ad350fb10b94ad4cf341f3671df1200339f21f5e0c5ff6af5da5468974cd0157",
+      "figma_adler32": "f4c46c28"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/menu.png",
+      "source_node": "82:76",
+      "figma_image_hash": "07a2def11fad8732b5a50256ffba9bde69a65911",
+      "source_dimensions_px": [
+        46,
+        44
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 618,
+      "sha256": "7dfabc975f5a7d97e7974dce614c06241fa721bf8d64e94a692a9cdcd12affd8",
+      "figma_adler32": "c7290f70"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/add_plant.png",
+      "source_node": "82:80",
+      "figma_image_hash": "4d3e920dd3a965eee36bc2cf6573725f2b6fc962",
+      "source_dimensions_px": [
+        46,
+        45
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 387,
+      "sha256": "b3df5050e43d7a60d192ea4de5690bf404812b17cefaa803933a9de78e6a8ee7",
+      "figma_adler32": "a1a89e52"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/back.png",
+      "source_node": "82:84",
+      "figma_image_hash": "01e35b284fa9e651afaeaba4e9571f7f80ef021d",
+      "source_dimensions_px": [
+        46,
+        42
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 414,
+      "sha256": "69c95e0f34802daf6ab9d0926ba7932b6d43222359c690020f2f4b107fe20c71",
+      "figma_adler32": "ae2aac27"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/edit.png",
+      "source_node": "82:88",
+      "figma_image_hash": "1edfd42d778d9a1139ec1f56e56ba72ec9a2b37f",
+      "source_dimensions_px": [
+        44,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 558,
+      "sha256": "d48d92272d75279060c750c0204c890289c7d766c7d6e34d7dc2859807840f36",
+      "figma_adler32": "dc95047c"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/notifications.png",
+      "source_node": "82:92",
+      "figma_image_hash": "98ad6659ef2498066cedfc8d1c540ad0097292a4",
+      "source_dimensions_px": [
+        39,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 444,
+      "sha256": "b34473a402eec8951ae5ac37b9c08978567386efbc9d3e5b1422537bb5473545",
+      "figma_adler32": "7a5fc248"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/settings.png",
+      "source_node": "82:96",
+      "figma_image_hash": "c16dcf00ded38862f1749897e348b8650611ce9d",
+      "source_dimensions_px": [
+        44,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 497,
+      "sha256": "718eaf7891530997e3efbf9f50ace1869484a13ee57e2baff9b0128fa11f62bd",
+      "figma_adler32": "b37fe2d7"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/about.png",
+      "source_node": "82:100",
+      "figma_image_hash": "5a3670286832babcfc18ba5870ff57101bd7a169",
+      "source_dimensions_px": [
+        46,
+        46
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 389,
+      "sha256": "05971c69ca39148c19b3bc813fe83adf580bae9f996b17be04b162a2f8aefd94",
+      "figma_adler32": "12609f50"
+    },
+    {
+      "path": "app/assets/plant_companion/branding/plant_companion_full.png",
+      "source_node": "82:107",
+      "figma_image_hash": "b86b6d3b592a7fe1809f8f7ed08abd187f466f9e",
+      "source_dimensions_px": [
+        240,
+        41
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 1246,
+      "sha256": "ef52ac5e5a6de44b02f19cdcd6befb71fd1da0fc7c02006ea0081af252fd19fb",
+      "figma_adler32": "906c4f0a"
+    },
+    {
+      "path": "app/assets/plant_companion/branding/companion_wordmark.png",
+      "source_node": "82:111",
+      "figma_image_hash": "fd13fb122731473d36a799c963d41ee2534e5d60",
+      "source_dimensions_px": [
+        330,
+        90
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 2235,
+      "sha256": "19e6c33970b3d74ebe2febf77efd1bd5e36dbb2acb2b8986e69923f0aaedd745",
+      "figma_adler32": "5b25172a"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/close_menu.png",
+      "source_node": "115:5",
+      "figma_image_hash": "7814a97a29330dceffa4a8c6a51f3cdd24906abd",
+      "source_dimensions_px": [
+        128,
+        128
+      ],
+      "format": "png",
+      "color_mode": "RGBA",
+      "bytes": 3287,
+      "sha256": "e0979f9a2719e62d9db2ca15f3262c275b5ecafd0c3d5754fd94ac3b516612a4",
+      "figma_adler32": "77e2519e"
+    },
+    {
+      "path": "app/assets/plant_companion/actions/refresh_readings.png",
+      "source_node": "144:10",
+      "figma_image_hash": "5ae6e1aaa518c33d1edf485d81322bfc7097ef38",
+      "source_dimensions_px": [
+        128,
+        121
+      ],
+      "format": "png",
+      "color_mode": "P",
+      "bytes": 1791,
+      "sha256": "91f9b382e63fd382422129007ecdf3574cc48fa1133e3ef563c7eb0bf502cf3d",
+      "figma_adler32": "c81d3a6f"
+    }
+  ],
+  "original_source_pngs": 24,
+  "current_visual_authority": {
+    "cards": [
+      "264:2",
+      "264:451"
+    ],
+    "launcher": "280:2",
+    "date": "2026-11-09"
+  },
+  "phase_f_assets": [
+    {
+      "path": "app/assets/plant_companion/needs/cold_thermometer.png",
+      "source_node": "264:628",
+      "source_dimensions_px": [
+        245,
+        456
+      ],
+      "bytes": 3759,
+      "sha256": "74902123a092ab65bc3357ada90dd169c3574ed327e172e4ba7f8a9599f8d866",
+      "format": "png",
+      "transparency": true,
+      "role": "Complete blue thermometer in cold need bubbles only"
+    },
+    {
+      "path": "app/assets/plant_companion/needs/excess_slash.png",
+      "source_node": "264:339",
+      "source_dimensions_px": [
+        86,
+        85
+      ],
+      "bytes": 422,
+      "sha256": "1c6ab2d8c59ddd40fecacfbee6dec623339125949c2bc63fa13390c2a8b07cc2",
+      "format": "png",
+      "transparency": true,
+      "role": "Shared overlay for excess moisture, light and humidity only"
+    },
+    {
+      "path": "artwork/AppLogo.png",
+      "source_node": "302:2",
+      "source_dimensions_px": [
+        634,
+        472
+      ],
+      "bytes": 20974,
+      "sha256": "6a37d349ed249b8545c0c3e583405094eb6efe609abbc5f23629ad675c7a15bd",
+      "format": "png",
+      "transparency": true,
+      "role": "Approved screen 11 original launcher artwork; excluded from in-app Flutter bundle"
+    }
+  ],
+  "platform_icon_manifest": "artwork/platform_icons.json"
+}
