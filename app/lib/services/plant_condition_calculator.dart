@@ -63,7 +63,7 @@ class ReadingPresentation {
       },
       timestamp = plant.deviceId == null
           ? null
-          : plant.latestReading?.recordedAt;
+          : plant.latestReading?.measuredAt;
 
   final bool isDemonstration;
   final Map<SensorMetric, double?> values;

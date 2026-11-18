@@ -1,0 +1,8 @@
+Chrome: Chrome/157.0.8103.79
+{"ok":true,"stage":"create","plantId":"plant-2","nickname":"Browser created","deviceId":"device-2","packetId":"reading-0000000000000002","recordedAt":"2026-11-18T03:05:21.871Z","historyCount":1,"reload":false}
+{"ok":true,"stage":"edit","plantId":"plant-2","nickname":"Browser edited","deviceId":"device-2","packetId":"reading-0000000000000002","recordedAt":"2026-11-18T03:05:21.871Z","historyCount":1,"reload":false}
+{"ok":true,"stage":"verify","plantId":"plant-2","nickname":"Browser edited","deviceId":"device-2","packetId":"reading-0000000000000002","recordedAt":"2026-11-18T03:05:21.871Z","historyCount":1,"reload":false}
+{"ok":true,"stage":"verify","plantId":"plant-2","nickname":"Browser edited","deviceId":"device-2","packetId":"reading-0000000000000002","recordedAt":"2026-11-18T03:05:21.871Z","historyCount":1,"reload":true}
+Chrome: Chrome/157.0.8103.79
+{"ok":true,"stage":"verify","plantId":"plant-2","nickname":"Browser edited","deviceId":"device-2","packetId":"reading-0000000000000002","recordedAt":"2026-11-18T03:05:21.871Z","historyCount":1,"reload":false}
+PASS: create, edit, reload, full Chrome restart; profile=C:\Users\Riley\plant-companion\app\build\browser-persistence-smoke\.smoke-profile-spyc55

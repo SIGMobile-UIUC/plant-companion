@@ -316,7 +316,7 @@ class CompanionDeviceSection extends StatelessWidget {
         : 'Available · ${connected ? 'Connected' : 'Disconnected'}';
     return _row(
       name: d.name,
-      secondary: secondary,
+      secondary: '${d.isPhysical ? 'Physical BLE · ' : ''}$secondary',
       keyId: d.id,
       selected: selected,
       eligible: owner == null,

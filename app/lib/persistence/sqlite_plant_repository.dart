@@ -10,7 +10,9 @@ import '../models/plant_commit.dart';
 import '../services/clock.dart';
 import '../services/plant_repository.dart';
 import '../utils/sensor_units.dart';
+import '../ble/ble_protocol.dart';
 import 'app_database.dart';
+part 'ble_persistence.dart';
 
 class SqlitePlantRepository implements PlantRepository {
   SqlitePlantRepository(this.database, {this.clock = const SystemClock()});
@@ -199,6 +201,26 @@ class SqlitePlantRepository implements PlantRepository {
         ],
       );
     } else if (deviceId != null) {
+      final physical = draft.physicalDevice;
+      if (physical != null) {
+        final count =
+            (await database.rows(
+                  'SELECT COUNT(*) AS n FROM devices',
+                )).single['n']
+                as int;
+        await database.customStatement(
+          '''INSERT INTO devices(id,display_ordinal,created_at_ms,connected,kind,ble_name,platform_hint)
+          VALUES (?,?,?,0,'physical',?,?) ON CONFLICT(id) DO UPDATE SET
+          ble_name=excluded.ble_name,platform_hint=excluded.platform_hint WHERE devices.kind='physical' ''',
+          [
+            physical.id,
+            count + 1,
+            now.millisecondsSinceEpoch,
+            physical.name,
+            physical.platformHint,
+          ],
+        );
+      }
       if ((await database.rows('SELECT id FROM devices WHERE id=?', [
         deviceId,
       ])).isEmpty) {
@@ -372,13 +394,17 @@ class SqlitePlantRepository implements PlantRepository {
     final ordinal = row['display_ordinal'] as int;
     return Device(
       id: row['id'] as String,
-      name: Device.displayName(ordinal),
+      name: row['kind'] == 'physical'
+          ? (row['ble_name'] as String? ?? 'Plant Companion BLE')
+          : Device.displayName(ordinal),
       displayOrdinal: ordinal,
       isConnected: row['connected'] == 1,
       createdAt: _date(row['created_at_ms']),
       revision: row['revision'] as int,
       lastAutoSlot: row['last_auto_slot'] as int,
       generationSequence: row['generation_sequence'] as int,
+      isPhysical: row['kind'] == 'physical',
+      platformHint: row['platform_hint'] as String?,
     );
   }
 
@@ -407,6 +433,17 @@ class SqlitePlantRepository implements PlantRepository {
       '''))
         r['plant_id'] as String: _reading(r),
     };
+    if (rows.any(
+      (p) => (p['device_id'] as String?)?.startsWith('ble:') == true,
+    )) {
+      for (final r in await database.rows(
+        '''SELECT r.* FROM plants p JOIN ble_records r ON r.rowid=(
+        SELECT rowid FROM ble_records WHERE plant_id=p.id AND device_id=p.device_id AND kind!=4
+        ORDER BY generation DESC,sequence DESC LIMIT 1)''',
+      )) {
+        latest[r['plant_id'] as String] = _bleReading(r);
+      }
+    }
     final result = <Plant>[];
     for (final row in rows) {
       final id = row['id'] as String;
@@ -439,14 +476,17 @@ class SqlitePlantRepository implements PlantRepository {
   });
 
   @override
-  Future<List<SensorReading>> loadHistory(
-    String plantId,
-  ) async => List.unmodifiable(
-    (await database.rows(
+  Future<List<SensorReading>> loadHistory(String plantId) async {
+    final simulated = (await database.rows(
       'SELECT * FROM sensor_readings WHERE plant_id=? ORDER BY recorded_at_ms DESC,id DESC',
       [plantId],
-    )).map(_reading),
-  );
+    )).map(_reading);
+    final physical = (await database.rows(
+      'SELECT * FROM ble_records WHERE plant_id=? AND kind!=4 ORDER BY generation DESC,sequence DESC',
+      [plantId],
+    )).map(_bleReading);
+    return List.unmodifiable([...physical, ...simulated]);
+  }
 
   SensorReading _reading(Map<String, dynamic> r) => SensorReading(
     id: r['id'] as String,
@@ -582,6 +622,7 @@ class SqlitePlantRepository implements PlantRepository {
     int? autoSlot,
     int? expectedProfileRevision,
   }) async {
+    if (captured.isPhysical) return false;
     final values = SensorMetric.values.map(reading.valueFor).toList();
     if (values.any((v) => v != null && !v.isFinite)) {
       throw ArgumentError('Sensor values must be finite.');

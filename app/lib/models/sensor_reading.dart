@@ -30,6 +30,10 @@ class SensorReading {
     this.temperature,
     this.humidity,
     this.light,
+    this.timestampKnown = true,
+    this.timeQuality = 'measured',
+    this.sequence,
+    this.bootId,
   });
 
   final DateTime recordedAt;
@@ -40,6 +44,10 @@ class SensorReading {
   final double? temperature;
   final double? humidity;
   final double? light;
+  final bool timestampKnown;
+  final String timeQuality;
+  final int? sequence, bootId;
+  DateTime? get measuredAt => timestampKnown ? recordedAt : null;
 
   double? valueFor(SensorMetric metric) => switch (metric) {
     SensorMetric.soilMoisture => soilMoisture,

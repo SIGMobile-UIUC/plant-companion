@@ -48,6 +48,7 @@ class FakeSensorRepository implements PlantSimulationGateway, DeviceGateway {
 
   @override
   Future<Device> connect(Device device, {bool simulateFailure = false}) async {
+    if (device.isPhysical) throw StateError('Physical devices require BLE.');
     await Future<void>.delayed(connectionDelay);
     if (simulateFailure) throw StateError('Could not connect. Try again.');
     return device.withConnection(true); // Candidate only, no saved assignment.
@@ -61,6 +62,7 @@ class FakeSensorRepository implements PlantSimulationGateway, DeviceGateway {
     SimulationMode simulationMode = SimulationMode.environment,
     PlantSimulationContext? plantContext,
   }) async {
+    if (device.isPhysical) throw StateError('Physical devices require BLE.');
     if (plantContext == null) {
       throw ArgumentError(
         'Local acquisition requires committed plant context.',

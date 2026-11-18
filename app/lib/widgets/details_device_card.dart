@@ -3,13 +3,21 @@ import '../models/device.dart';
 import '../theme/app_theme.dart';
 
 class DetailsDeviceCard extends StatelessWidget {
-  const DetailsDeviceCard({super.key, required this.device, this.onChange});
+  const DetailsDeviceCard({
+    super.key,
+    required this.device,
+    this.onChange,
+    this.message,
+  });
   final Device? device;
   final VoidCallback? onChange;
+  final String? message;
   @override
   Widget build(BuildContext context) {
     final connected = device?.isConnected == true;
-    final status = connected ? 'Connected' : 'Disconnected';
+    final status =
+        message ??
+        '${device?.isPhysical == true ? 'Physical BLE · ' : ''}${connected ? 'Connected' : 'Disconnected'}';
     final label = device == null
         ? 'No device assigned · Change Device'
         : '${device!.name} · Change Device';
@@ -66,6 +74,8 @@ class DetailsDeviceCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final normal =
+            message == null &&
+            device?.isPhysical != true &&
             constraints.maxWidth >= 354 &&
             MediaQuery.textScalerOf(context).scale(1) <= 1.05;
         return Container(

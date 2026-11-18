@@ -39,9 +39,11 @@ class ConnectionBadge extends StatelessWidget {
     super.key,
     required this.connected,
     this.assigned = true,
+    this.physical = false,
   });
   final bool connected;
   final bool assigned;
+  final bool physical;
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -69,8 +71,8 @@ class ConnectionBadge extends StatelessWidget {
             !assigned
                 ? 'No device'
                 : connected
-                ? 'Connected'
-                : 'Disconnected',
+                ? '${physical ? 'BLE · ' : ''}Connected'
+                : '${physical ? 'BLE · ' : ''}Disconnected',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -143,6 +145,7 @@ class PlantCard extends StatelessWidget {
       key: ValueKey('connection-${plant.id}'),
       connected: device?.isConnected ?? false,
       assigned: device != null,
+      physical: device?.isPhysical ?? false,
     );
     Widget sync() => !preview && presentation.timestamp != null
         ? Text(

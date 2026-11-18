@@ -62,9 +62,9 @@ class PlantDeviceDraft extends ChangeNotifier {
       final result = await store.discoverDevices();
       if (_disposed || version != _scanVersion) return;
       inventory = List.unmodifiable(result);
-    } catch (_) {
+    } catch (e) {
       if (!_disposed && version == _scanVersion) {
-        error = 'Could not scan. Try again.';
+        error = 'Could not scan. $e';
       }
     } finally {
       if (!_disposed && version == _scanVersion) {
@@ -125,9 +125,11 @@ class PlantDeviceDraft extends ChangeNotifier {
         return;
       }
       preparedKey = key;
-    } catch (_) {
+    } catch (e) {
       if (!_disposed && version == _connectionVersion) {
-        error = 'Could not connect. Save disconnected or try again.';
+        error = device.isPhysical
+            ? '$e Save disconnected or try again.'
+            : 'Could not connect. Save disconnected or try again.';
       }
     } finally {
       if (!_disposed && version == _connectionVersion) {

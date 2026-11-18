@@ -1,6 +1,6 @@
 # SIGMobile Plant Companion
 
-Plant Companion is a Flutter application developed for SIGMobile to help people manage houseplants and understand their growing conditions. The MVP combines pixel-art plant companions, configurable care ranges and persistent sensor data. Sensors and companion devices are currently simulated; physical ESP32/BLE connectivity is future work.
+Plant Companion is a Flutter application developed for SIGMobile to help people manage houseplants and understand their growing conditions. The MVP combines pixel-art plant companions, configurable care ranges and persistent sensor data. Phase G adds production XIAO ESP32-C3 firmware and Android/iOS foreground BLE alongside the simulator. Software verification is recorded in the [Phase G audit](docs/phase-g-audit.md); physical ESP32/iPhone acceptance remains pending.
 
 ## Features
 
@@ -9,6 +9,7 @@ Plant Companion is a Flutter application developed for SIGMobile to help people 
 - See current readings, ideal-range rails, connection status and the last genuine sync time on Home and individual plant Details.
 - Recognize nine conditions: Happy; moisture too low/high; light too low/high; temperature too low/high; humidity too low/high.
 - Discover, create, connect, change and unassign multiple simulated devices through the inline Companion Device controls.
+- Discover and assign a production physical BLE device in the same controls; reconnect to its saved identity and import retained readings.
 - Refresh readings manually and receive scheduled readings while the app is active.
 - Save plants, care settings, device assignments and historical readings in SQLite across application and browser restarts.
 
@@ -18,9 +19,11 @@ Home card actions open the corresponding plant's Details. The drawer's **Edit Pl
 
 The four measurements are soil moisture and humidity on a 0–100 scale, light in lux and temperature displayed in Fahrenheit. Temperature is stored internally in Celsius. Ideal care ranges are user-configured targets.
 
-Manual Refresh selects a feasible condition, then generates all four measurements consistently with it. When all nine conditions are possible, Happy has a 20% probability and each low/high problem has a 10% probability. Impossible conditions are excluded and the remaining weights are normalized. Repeated conditions are expected; Refresh does not cycle through a fixed list.
+For simulated devices, manual Refresh selects a feasible condition, then generates all four measurements consistently with it. When all nine conditions are possible, Happy has a 20% probability and each low/high problem has a 10% probability. Impossible conditions are excluded and the remaining weights are normalized. Repeated conditions are expected; Refresh does not cycle through a fixed list.
 
-Initial connection and automatic acquisitions use a separate gradual environmental simulation. Automatic readings follow each device's creation time at 20-minute intervals. Manual Refresh preserves that schedule. The scheduler operates in the foreground and performs one overdue catch-up when the app resumes; it is not a background service.
+Simulated initial connection and automatic acquisitions use a separate gradual environmental simulation. Automatic readings follow each simulated device's creation time at 20-minute intervals. Manual Refresh preserves that schedule. This scheduler operates in the foreground and performs one overdue catch-up when the app resumes; it is not a background service.
+
+For physical BLE devices, the ESP32 takes a startup reading and records every 20 minutes while powered, including while the phone is away. Refresh requests and saves a matching new device measurement without resetting that deadline. On launch/resume the mobile app reconnects and imports latest/offline records transactionally before acknowledgment. Calibration is performed once through USB Serial Monitor and saved on the board; uncalibrated soil stays unavailable. Physical and simulated source IDs/storage remain separate. Physical Details includes an inline history list; samples without a defensible clock anchor retain unknown time. Follow the [production flash/calibration/iPhone runbook](docs/phase-g-hardware-runbook.md) and [wire protocol](docs/ble-protocol.md).
 
 Connection, sensor availability and plant health are separate. Disconnected devices retain their genuine last-known readings and time. Missing measurements do not count as healthy. A plant without a device displays demonstration midpoint values with a sleeping portrait and no need bubble or fabricated sync time. Form previews never become acquired readings.
 
@@ -85,6 +88,7 @@ node tool/run_browser_persistence_smoke.mjs build/browser-persistence-smoke
 | `app/lib/models/` | Plants, care ranges, readings, device state and form drafts |
 | `app/lib/persistence/` | SQLite schema, migrations, atomic mutations and reading history |
 | `app/lib/services/` | Sensor/device interfaces, simulation, condition calculation and scheduling |
+| `app/lib/ble/` | Native transport, versioned wire codec and foreground durable synchronization |
 | `app/lib/state/` | Shared application state and durable operation coordination |
 | `app/lib/screens/`, `app/lib/navigation/` | Home, Details, plant selection and shared Add/Edit workflows |
 | `app/lib/widgets/` | Portrait composition, sensor rails, device controls and accessible form components |
@@ -93,13 +97,15 @@ node tool/run_browser_persistence_smoke.mjs build/browser-persistence-smoke
 | `app/assets/` | Original plant artwork, indicators, branding, fonts and font licenses |
 | `app/android/`, `app/ios/`, `app/web/` | Platform configuration, launcher resources and web SQLite runtime |
 | `artwork/` | Original AppLogo and generated platform-icon manifest |
+| `firmware/` | Production XIAO ESP32-C3 sketch, unchanged diagnostic rollback and portable core tests |
+| `protocol/`, `docs/` | Shared wire fixtures, BLE reference, physical runbook and evidence-backed Phase G audit |
 
 See [asset documentation](README_ASSETS.md), the [asset manifest](asset_manifest.json) and [launcher generation instructions](artwork/README.md). The original horizontal wordmark remains in the application; platform launcher icons use AppLogo on `#163F2E`. Project licensing is in [LICENSE](LICENSE); font licenses are included with the fonts.
 
 ## Limitations and future work
 
-Physical ESP32/BLE communication, sensor calibration, automatic watering, cloud synchronization and user accounts are not implemented. Notifications, Settings and About are presentational drawer entries. There is no background acquisition service or history-chart UI.
+Physical ESP32/BLE integration and serial soil calibration are implemented but have not been verified on a real board/phone in this session. Automatic watering, cloud synchronization and user accounts are not implemented. Notifications, Settings and About are presentational drawer entries. There is no new phone background acquisition service or history-chart UI. Physical BLE requires the Android/iOS app; web/desktop retain simulator support.
 
-Chrome and Android have been validated. iOS resources are present, but building/running iOS requires macOS and Xcode; iOS/Safari runtime validation remains outstanding. Android release configuration currently uses debug signing and must be configured for production distribution. Fully validated Android App Bundles also require the Android SDK command-line tools, including `apkanalyzer`.
+Phase G checks cover Android/web builds, Flutter tests and Chrome SQLite persistence. Physical BLE on Android/iPhone has not been observed. Building/running iOS requires macOS and Xcode; iOS compile/sign/install and Safari runtime validation remain outstanding. Android release configuration currently uses debug signing and must be configured for production distribution. Fully validated Android App Bundles also require the Android SDK command-line tools, including `apkanalyzer`.
 
-Future development should connect the existing device/sensor interfaces to physical ESP32/BLE hardware, calibrate and validate real measurements, and verify behavior on the intended devices and Apple platforms while preserving current persistence and ownership guarantees.
+The next acceptance work is the documented board serial/calibration preflight and Mac build/install, followed by the fast Florence demo, offline catch-up and reboot checks on the physical ESP32/iPhone. See the audit for exact completed checks and remaining blockers.

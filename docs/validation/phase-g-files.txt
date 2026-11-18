@@ -1,0 +1,66 @@
+Phase G changes relative to HEAD ee269974f861bbea27eae78234df580d97408b77
+M = modified; A = newly created/untracked; D = deleted. No source files deleted.
+Excluded: ignored toolchains, caches, build output, databases and unchanged original binary assets.
+
+M	README.md
+M	app/android/app/build.gradle.kts
+M	app/android/app/src/main/AndroidManifest.xml
+M	app/android/app/src/main/kotlin/org/sigmobile/plant_companion/MainActivity.kt
+M	app/ios/Runner/Info.plist
+M	app/lib/main.dart
+M	app/lib/models/device.dart
+M	app/lib/models/plant_commit.dart
+M	app/lib/models/plant_device_draft.dart
+M	app/lib/models/plant_form_draft.dart
+M	app/lib/models/sensor_reading.dart
+M	app/lib/persistence/app_database.dart
+M	app/lib/persistence/sqlite_plant_repository.dart
+M	app/lib/screens/plant_details_screen.dart
+M	app/lib/screens/plant_form_screen.dart
+M	app/lib/services/fake_sensor_repository.dart
+M	app/lib/services/plant_condition_calculator.dart
+M	app/lib/services/reading_scheduler.dart
+M	app/lib/state/plant_store.dart
+M	app/lib/widgets/companion_device_section.dart
+M	app/lib/widgets/details_device_card.dart
+M	app/lib/widgets/plant_card.dart
+M	app/pubspec.lock
+M	app/pubspec.yaml
+M	app/test/plant_mutation_persistence_test.dart
+A	app/lib/ble/ble_protocol.dart
+A	app/lib/ble/ble_sync_service.dart
+A	app/lib/ble/ble_transport.dart
+A	app/lib/ble/ble_transport_factory.dart
+A	app/lib/ble/ble_transport_mobile.dart
+A	app/lib/ble/ble_transport_stub.dart
+A	app/lib/persistence/ble_persistence.dart
+A	app/lib/widgets/reading_history.dart
+A	app/test/ble_integration_test.dart
+A	app/test/ble_migration_test.dart
+A	app/test/fixtures/ble_peripheral.dart
+A	docs/ble-protocol.md
+A	docs/phase-g-audit.md
+A	docs/phase-g-hardware-runbook.md
+A	docs/validation/phase-g-analysis.log
+A	docs/validation/phase-g-android-build.log
+A	docs/validation/phase-g-arduino-versions.log
+A	docs/validation/phase-g-assets.log
+A	docs/validation/phase-g-board-list.json
+A	docs/validation/phase-g-browser-build.log
+A	docs/validation/phase-g-browser-smoke.log
+A	docs/validation/phase-g-core-tests.log
+A	docs/validation/phase-g-devices.json
+A	docs/validation/phase-g-files.txt
+A	docs/validation/phase-g-firmware-build.log
+A	docs/validation/phase-g-format.log
+A	docs/validation/phase-g-integrity.txt
+A	docs/validation/phase-g-ios-build.log
+A	docs/validation/phase-g-tests.log
+A	docs/validation/phase-g-toolchain.log
+A	docs/validation/phase-g-web-build.log
+A	firmware/PlantCompanion/PlantCompanion.ino
+A	firmware/PlantCompanion/pc_core.h
+A	firmware/diagnostic/PlantCompanion_Test (1).ino
+A	firmware/test/core_test.cpp
+A	protocol/golden-v1.json
+A	docs/validation/phase-g-ble-tests.log

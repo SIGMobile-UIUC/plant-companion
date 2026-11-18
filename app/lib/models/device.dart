@@ -12,6 +12,8 @@ class Device {
     this.lastAutoSlot = 0,
     this.generationSequence = 0,
     this.batteryVoltage,
+    this.isPhysical = false,
+    this.platformHint,
   });
 
   /// Immutable identity. Never bind ownership/history to the mutable name.
@@ -24,6 +26,8 @@ class Device {
   final int lastAutoSlot;
   final int generationSequence;
   final double? batteryVoltage;
+  final bool isPhysical;
+  final String? platformHint;
 
   Device withConnection(bool connected) => Device(
     id: id,
@@ -35,6 +39,8 @@ class Device {
     lastAutoSlot: lastAutoSlot,
     generationSequence: generationSequence,
     batteryVoltage: batteryVoltage,
+    isPhysical: isPhysical,
+    platformHint: platformHint,
   );
 
   static String displayName(int ordinal) =>

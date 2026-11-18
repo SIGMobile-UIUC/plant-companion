@@ -268,6 +268,9 @@ class _PlantFormScreenState extends State<PlantFormScreen> {
       originalTemperatureText: _originalTemperatureText,
     ),
     deviceId: _devices!.selectedDeviceId,
+    physicalDevice: _devices!.selectedDevice?.isPhysical == true
+        ? _devices!.selectedDevice
+        : null,
     createDevice: _devices!.createsDevice,
     connectDevice: _devices!.connectionRequested,
     editToken: _editToken,

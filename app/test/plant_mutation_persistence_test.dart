@@ -97,13 +97,13 @@ void main() {
   }
 
   test(
-    'fresh v2 preserves approved exact Florence bootstrap and no fabricated full name',
+    'fresh v3 preserves approved exact Florence bootstrap and no fabricated full name',
     () async {
       expect(
         (await repo.database.rows(
           'PRAGMA user_version',
         )).single['user_version'],
-        2,
+        3,
       );
       final p = (await repo.loadPlants()).single,
           d = (await repo.loadDevices()).single;
@@ -426,7 +426,7 @@ void main() {
 
   for (final empty in [false, true]) {
     test(
-      'native populated/empty v1 to v2 migration preserves all old values: empty=$empty',
+      'native populated/empty v1 to v3 migration preserves all old values: empty=$empty',
       () async {
         final folder = await Directory.systemTemp.createTemp(
               'phase_d_migration_',
@@ -455,7 +455,7 @@ void main() {
           await migrated.initialize();
           expect(
             (await db.rows('PRAGMA user_version')).single['user_version'],
-            2,
+            3,
           );
           for (final table in tables) {
             final after = (await db.rows(
@@ -465,6 +465,13 @@ void main() {
               for (final row in after) {
                 expect(row.remove('full_name'), isNull);
                 expect(row.remove('profile_revision'), 0);
+              }
+            }
+            if (table == 'devices') {
+              for (final row in after) {
+                expect(row.remove('kind'), 'simulated');
+                expect(row.remove('ble_name'), isNull);
+                expect(row.remove('platform_hint'), isNull);
               }
             }
             expect(after, before[table], reason: table);

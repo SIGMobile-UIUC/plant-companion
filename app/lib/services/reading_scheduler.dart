@@ -204,6 +204,7 @@ class ReadingScheduler {
         context ?? await repository.loadAcquisitionContext(plantId);
     final device = snapshot?.device;
     if (device == null ||
+        device.isPhysical ||
         device.id != deviceId ||
         !device.isConnected ||
         (expectedRevision != null && device.revision != expectedRevision)) {
@@ -274,7 +275,11 @@ class ReadingScheduler {
     await Future.wait(
       assignments.entries.map((entry) async {
         final device = entry.value;
-        if (!device.isConnected || device.createdAt == null) return;
+        if (device.isPhysical ||
+            !device.isConnected ||
+            device.createdAt == null) {
+          return;
+        }
         final slot = SqlitePlantRepository.slotAt(device, clock.now());
         if (slot <= device.lastAutoSlot) return;
         try {
@@ -315,7 +320,7 @@ class ReadingScheduler {
       final devices = (await repository.loadAssignedDevices()).values;
       DateTime? next;
       for (final d in devices) {
-        if (!d.isConnected || d.createdAt == null) continue;
+        if (d.isPhysical || !d.isConnected || d.createdAt == null) continue;
         final slot = SqlitePlantRepository.slotAt(d, clock.now());
         final deadline = d.createdAt!.add(
           Duration(

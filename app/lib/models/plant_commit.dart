@@ -65,6 +65,8 @@ class PlantSaveReceipt {
           'revision': d.revision,
           'slot': d.lastAutoSlot,
           'sequence': d.generationSequence,
+          'physical': d.isPhysical,
+          'platformHint': d.platformHint,
         };
   static Device? _device(dynamic j) => j == null
       ? null
@@ -79,6 +81,8 @@ class PlantSaveReceipt {
           revision: j['revision'] as int,
           lastAutoSlot: j['slot'] as int,
           generationSequence: j['sequence'] as int,
+          isPhysical: j['physical'] as bool? ?? false,
+          platformHint: j['platformHint'] as String?,
         );
 }
 

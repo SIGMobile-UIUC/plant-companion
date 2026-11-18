@@ -1,0 +1,42 @@
+[!] Flutter (Channel stable, 3.47.6, on Microsoft Windows [Version 10.0.26200.9974], locale en-US) [498ms]
+    • Flutter version 3.47.6 on channel stable at C:\Users\Riley\plant-companion\.tools\flutter
+    ! Warning: `flutter` on your path resolves to C:\Users\Riley\Documents\codestuff\flutter\bin\flutter, which is not inside your current Flutter SDK checkout at C:\Users\Riley\plant-companion\.tools\flutter. Consider adding C:\Users\Riley\plant-companion\.tools\flutter\bin to the front of your path.
+    ! Warning: `dart` on your path resolves to C:\Users\Riley\Documents\codestuff\flutter\bin\dart, which is not inside your current Flutter SDK checkout at C:\Users\Riley\plant-companion\.tools\flutter. Consider adding C:\Users\Riley\plant-companion\.tools\flutter\bin to the front of your path.
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 5fc346839b (7 weeks ago), 2026-09-30 15:02:49 -0700
+    • Engine revision 692136cb65
+    • Dart version 3.13.5
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+    • If those were intentional, you can disregard the above warnings; however it is recommended to use "git" directly to perform update checks and upgrades.
+
+[√] Windows Version (Windows 11 or higher, 25H2, 2009) [1,249ms]
+
+[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [633ms]
+    • Android SDK at C:\Users\Riley\AppData\Local\Android\sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    X cmdline-tools component is missing.
+      Try installing or updating Android Studio.
+      Alternatively, download the tools from https://developer.android.com/studio#command-line-tools-only and make sure to set the ANDROID_HOME environment variable.
+      See https://developer.android.com/studio/command-line for more details.
+    X Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/windows-android-setup for more details.
+
+[√] Chrome - develop for the web [31ms]
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[X] Visual Studio - develop Windows apps [30ms]
+    X Visual Studio not installed; this is necessary to develop Windows apps.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[√] Connected device (3 available) [2.5s]
+    • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9974]
+    • Chrome (web)      • chrome  • web-javascript • Google Chrome 157.0.8103.79
+    • Edge (web)        • edge    • web-javascript • Microsoft Edge 157.0.4341.60
+
+[√] Network resources [376ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 3 categories.

@@ -1,0 +1,6 @@
+Branch: feat/figma-frontend
+HEAD: ee269974f861bbea27eae78234df580d97408b77
+Asset/font/icon documentation or binary paths changed: 0
+git diff --check exit: 0
+AD088E1ECF33E20C847580C507D07E21183818B8318C20AFADC7F3324EF1BC4B firmware/diagnostic/PlantCompanion_Test (1).ino
+AD088E1ECF33E20C847580C507D07E21183818B8318C20AFADC7F3324EF1BC4B C:\Users\Riley\Downloads\PlantCompanion_Test (1).ino

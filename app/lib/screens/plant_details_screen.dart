@@ -12,6 +12,7 @@ import '../widgets/companion_header.dart';
 import '../widgets/details_hero.dart';
 import '../navigation/plant_navigation.dart';
 import '../widgets/plant_operation_notice.dart';
+import '../widgets/reading_history.dart';
 
 class PlantDetailsScreen extends StatefulWidget {
   const PlantDetailsScreen({super.key, required this.plantId});
@@ -48,6 +49,9 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen> {
         _ => null,
       };
       _errorPacket = plant.latestReading?.id;
+      if (_error != null && store.deviceFor(plant)?.isPhysical == true) {
+        _error = store.deviceMessage(plant.deviceId!) ?? _error;
+      }
       _errorDevice = plant.deviceId;
     });
   }
@@ -171,6 +175,9 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: DetailsDeviceCard(
                             device: store.deviceFor(plant),
+                            message: plant.deviceId == null
+                                ? null
+                                : store.deviceMessage(plant.deviceId!),
                             onChange: () => openPlantRoute(
                               context,
                               PlantRouteIntent(
@@ -182,6 +189,23 @@ class _PlantDetailsScreenState extends State<PlantDetailsScreen> {
                             ),
                           ),
                         ),
+                        if (store.deviceFor(plant)?.isPhysical == true) ...[
+                          const SizedBox(height: 12),
+                          if (plant.latestReading?.timestampKnown == false)
+                            const Text(
+                              'Measurement time unknown · This boot was not linked to the phone clock.',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 12,
+                                color: AppColors.muted,
+                              ),
+                            ),
+                          ReadingHistory(
+                            plantId: plant.id,
+                            packetId: plant.latestReading?.id,
+                            load: store.persistence.loadHistory,
+                          ),
+                        ],
                       ],
                     ),
                   ),

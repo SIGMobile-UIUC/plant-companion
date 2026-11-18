@@ -1,0 +1,20 @@
+00:00 +0: loading C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart
+00:00 +0: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: production C++ goldens decode in Dart including full 64-bit request
+00:00 +1: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: discovery and connection preparation do not persist an assignment
+00:00 +2: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: Florence uses physical readings, Refresh correlates and schedule is unchanged
+00:00 +3: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: offline catch-up is paged, replay/ACK loss do not duplicate
+00:00 +4: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: interrupted chunks preserve cursor and retry imports exactly once
+00:00 +5: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: overwritten history marks a visible persistent gap and imports retained rows
+00:00 +6: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: reassignment rejects in-flight packets and prevents former-owner attribution
+00:00 +7: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: malformed CRC, truncated END and conflicting fragments are rejected
+00:00 +8: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: failed SQLite fresh commit sends no ACK and reuses durable request token
+00:00 +9: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: wrong Refresh request never reports success or clears pending request
+00:00 +10: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: fresh commit remains successful when subsequent history ACK is lost
+00:00 +11: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: physical post-save acquisition failure preserves plant and saved association
+00:00 +12: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: post-commit BLE cleanup error reports a warning after save and delete
+00:00 +13: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: unanchored older boot remains unknown; current boot anchored; partial sensor valid
+00:00 +14: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: database reopen and new service reconnect saved stable identity via scan
+00:00 +15: C:/Users/Riley/plant-companion/app/test/ble_integration_test.dart: fake peripheral physical readings appear through normal Florence UI
+00:01 +16: loading C:/Users/Riley/plant-companion/app/test/ble_migration_test.dart
+00:02 +16: C:/Users/Riley/plant-companion/app/test/ble_migration_test.dart: populated native v2 migrates to v3 without changing any existing row
+00:02 +17: All tests passed!

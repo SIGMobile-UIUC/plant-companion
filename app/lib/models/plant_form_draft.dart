@@ -2,6 +2,7 @@ import 'plant_avatar_id.dart';
 import 'plant_profile.dart';
 import 'sensor_reading.dart';
 import 'plant_commit.dart';
+import 'device.dart';
 import '../config/plant_name_config.dart';
 import '../config/temperature_display_config.dart';
 
@@ -27,6 +28,7 @@ class PlantFormDraft {
     this.connectDevice = false,
     Object? fullName = _unchangedFullName,
     this.editToken,
+    this.physicalDevice,
   }) : ranges = Map.unmodifiable(ranges),
        updatesFullName = !identical(fullName, _unchangedFullName),
        fullName = identical(fullName, _unchangedFullName)
@@ -45,6 +47,7 @@ class PlantFormDraft {
   final String? fullName;
   final bool updatesFullName;
   final PlantEditToken? editToken;
+  final Device? physicalDevice;
 
   static (double, double) sensorBounds(SensorMetric metric) => switch (metric) {
     SensorMetric.soilMoisture || SensorMetric.humidity => (0.0, 100.0),
@@ -56,6 +59,12 @@ class PlantFormDraft {
   };
 
   void validate() {
+    if (physicalDevice != null &&
+        (!physicalDevice!.isPhysical ||
+            physicalDevice!.id != deviceId ||
+            createDevice)) {
+      throw ArgumentError('Invalid physical device selection.');
+    }
     if (!PlantNameConfig.accepts(
       fullName?.trim() ?? '',
       PlantNameConfig.fullNameInputMaxLength,
@@ -115,5 +124,11 @@ class PlantFormDraft {
     'updatesFullName': updatesFullName,
     'fullName': fullName,
     'editToken': editToken?.toJson(),
+    if (physicalDevice != null)
+      'physicalDevice': {
+        'id': physicalDevice!.id,
+        'name': physicalDevice!.name,
+        'hint': physicalDevice!.platformHint,
+      },
   };
 }

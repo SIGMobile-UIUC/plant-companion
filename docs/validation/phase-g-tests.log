@@ -1,0 +1,779 @@
+00:00 +0: loading C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart
+00:00 +0: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: lost automatic acknowledgement consumes one overdue slot exactly once
+00:00 +1: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: rollback does not consume sequence; retry reproduces exact candidate
+00:00 +2: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range0: zero endpoint, feasible constraints or exact wide fallback
+00:00 +3: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range0: zero endpoint, feasible constraints or exact wide fallback
+00:00 +4: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: publication failure reports saved packet and never reacquires
+00:00 +5: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range1: zero endpoint, feasible constraints or exact wide fallback
+00:00 +6: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range2: zero endpoint, feasible constraints or exact wide fallback
+00:00 +7: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: rearm read failure retries on timer and preserves committed packet/anchor
+00:00 +8: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: rearm read failure retries on timer and preserves committed packet/anchor
+00:00 +9: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: rearm read failure retries on timer and preserves committed packet/anchor
+00:00 +10: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range5: zero endpoint, feasible constraints or exact wide fallback
+00:00 +11: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: pause during asynchronous rearm cannot resurrect timer
+00:00 +12: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: pause during asynchronous rearm cannot resurrect timer
+00:00 +13: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: range7: zero endpoint, feasible constraints or exact wide fallback
+00:00 +14: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: slow first device does not block other due devices
+00:00 +15: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: slow first device does not block other due devices
+00:00 +16: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: slow first device does not block other due devices
+00:00 +17: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: slow first device does not block other due devices
+00:00 +18: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: slow first device does not block other due devices
+00:00 +19: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +20: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +21: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +22: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +23: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +24: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +25: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +26: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:00 +27: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +28: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +29: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +30: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +30: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: v2 reopen adds source index without reseeding or losing deterministic continuation
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+00:01 +31: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +32: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +33: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +33: C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart: v2 reopen adds source index without reseeding or losing deterministic continuation
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart:374:9)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/acquisition_failure_recovery_test.dart:396:11)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:01 +34: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +35: C:/Users/Riley/plant-companion/app/test/adaptive_light_scale_test.dart: 400.0–850.0: shared rendered geometry, rebuilds and endpoint containment
+00:01 +36: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +37: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +38: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +39: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +40: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +41: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +42: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +43: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +44: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +45: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +46: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +47: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +48: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +49: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +50: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +51: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +52: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +53: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +54: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +55: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +56: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +57: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +58: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +59: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +60: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +61: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +62: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +63: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +64: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +65: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +66: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +67: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +68: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +69: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +70: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +71: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +72: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +73: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +74: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +75: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +76: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +77: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +78: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +79: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +80: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +81: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +82: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +83: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +84: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +85: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +86: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +87: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +88: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +89: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +90: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +91: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +92: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +93: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +94: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +95: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:01 +96: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +97: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +98: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +99: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +100: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +101: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +102: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +103: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +104: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +105: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +106: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +107: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +108: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +109: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +110: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +111: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +112: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +113: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +114: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +115: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +116: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +117: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +118: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +119: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +120: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +121: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +122: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +123: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +124: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +125: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +126: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +127: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +128: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +129: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +130: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +131: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +132: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +133: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +134: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +135: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +136: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +137: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +138: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +139: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +140: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +141: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +142: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +143: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +144: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +145: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +146: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +147: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +148: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +149: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +150: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +151: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +152: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +153: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +154: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +155: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +156: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +157: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +158: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +159: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +160: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +161: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +162: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +163: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +164: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +165: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +166: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +167: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +168: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:02 +169: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:03 +170: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:03 +171: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:03 +172: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: required fields show understandable errors and do not add a plant
+00:03 +173: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +174: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +175: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +176: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +177: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +178: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +179: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +180: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +181: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +182: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +183: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +184: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +185: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +186: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +187: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +188: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +189: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:03 +190: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +191: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +192: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +193: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +194: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +195: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +196: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +197: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +198: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +199: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +200: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +201: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +202: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +203: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +204: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +205: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +206: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +207: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +208: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +209: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +210: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +211: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +212: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +213: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +214: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +215: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +216: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +217: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +218: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +219: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:04 +220: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +221: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +222: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +223: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +224: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +225: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +226: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +227: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +228: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +229: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +230: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +231: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +232: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +233: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +234: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +235: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +236: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +237: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +238: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +239: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +240: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +241: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +241: C:/Users/Riley/plant-companion/app/test/persistence_test.dart: file-backed restart preserves edits and intentional empty database
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/persistence_test.dart:250:9)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/persistence_test.dart:269:11)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/persistence_test.dart:280:11)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:05 +242: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +243: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +244: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +245: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +246: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +247: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +248: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:05 +249: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:06 +250: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:06 +251: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:06 +252: C:/Users/Riley/plant-companion/app/test/condition_acquisition_test.dart: Details exposes actionable correction error then normal existing Edit/Refresh recovers
+00:06 +253: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:06 +254: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:06 +255: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:06 +256: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +257: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +258: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +259: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +260: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +261: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +262: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: adding a plant without a device updates My Plants
+00:07 +263: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:07 +264: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:07 +265: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:07 +266: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:07 +267: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +268: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +269: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +270: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +271: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +272: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +273: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +274: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +275: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +276: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +277: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +278: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +279: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +280: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +281: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +282: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +283: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +284: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +285: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +286: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +287: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +288: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +289: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +290: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +291: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +292: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +293: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +294: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +295: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +296: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +297: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +298: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +299: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +300: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +301: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +302: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +303: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +304: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +305: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +306: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +307: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +308: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +309: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +310: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +311: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +312: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +313: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +314: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +315: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +316: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:08 +317: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +318: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +319: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +320: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +321: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +322: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +323: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +324: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +325: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +326: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +327: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +328: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +329: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +330: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +331: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +332: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +333: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +334: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +335: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +336: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +337: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +338: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:09 +339: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +340: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +341: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +342: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +343: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +344: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +345: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +346: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +347: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +348: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +349: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +350: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +351: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +352: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +353: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +354: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +355: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +356: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:10 +357: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +358: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +358: C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart: native populated/empty v1 to v3 migration preserves all old values: empty=false
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:452:18)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+00:11 +359: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +359: C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart: native populated/empty v1 to v3 migration preserves all old values: empty=false
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:481:16)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:11 +360: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +360: C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart: native populated/empty v1 to v3 migration preserves all old values: empty=true
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:452:18)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:481:16)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:11 +361: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +362: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +362: C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart: interrupted/failed migration rolls back additive columns and preserves v1 data for recovery
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:511:22)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/plant_mutation_persistence_test.dart:533:9)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:11 +363: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +364: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +365: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:11 +366: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +367: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +368: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +369: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +370: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +371: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +372: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +373: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +374: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +375: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +376: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +377: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +378: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +379: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +380: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +381: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +382: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +383: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +384: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +385: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +386: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +387: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +388: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +389: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +390: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +391: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +392: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:12 +393: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +394: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +395: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +396: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +397: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +398: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +399: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +400: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:13 +401: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +402: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +403: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +404: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +405: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +406: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +407: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +408: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +409: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:14 +410: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +411: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +412: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +413: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +414: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +415: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +416: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +417: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +418: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +419: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +420: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +421: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +422: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +423: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +424: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +425: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +426: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:15 +427: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +428: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +429: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +430: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +431: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +432: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +433: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +434: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +435: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +436: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +437: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +438: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +439: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +440: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +441: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +442: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +443: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +444: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:16 +444: C:/Users/Riley/plant-companion/app/test/scale_context_test.dart: file-backed v2 restart preserves out-of-axis ideals, light ceiling, sequence and old packets
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/scale_context_test.dart:298:9)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+WARNING (drift): It looks like you've created the database class AppDatabase multiple times. When these two databases use the same QueryExecutor, race conditions will occur and might corrupt the database. 
+Try to follow the advice at https://drift.simonbinder.eu/faq/#using-the-database or, if you know what you're doing, set driftRuntimeOptions.dontWarnAboutMultipleDatabases = true
+Here is the stacktrace from when the database was opened a second time:
+#0      GeneratedDatabase._handleInstantiated (package:drift/src/runtime/api/db_base.dart:96:30)
+#1      GeneratedDatabase._whenConstructed (package:drift/src/runtime/api/db_base.dart:73:12)
+#2      new GeneratedDatabase (package:drift/src/runtime/api/db_base.dart:64:5)
+#3      new AppDatabase (package:plant_companion/persistence/app_database.dart)
+#4      main.<anonymous closure> (file:///C:/Users/Riley/plant-companion/app/test/scale_context_test.dart:314:11)
+<asynchronous suspension>
+#5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+<asynchronous suspension>
+#6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+<asynchronous suspension>
+#7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+<asynchronous suspension>
+This warning will only appear on debug builds.
+00:16 +445: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +446: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +447: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +448: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +449: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +450: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +451: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +452: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +453: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +454: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +455: C:/Users/Riley/plant-companion/app/test/light_formatting_and_persistence_test.dart: avatar controls create all three original avatars; custom identities remain valid
+00:17 +456: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:17 +457: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:17 +458: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:17 +459: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:17 +460: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:17 +461: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +462: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +463: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +464: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +465: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +466: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +467: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +468: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +469: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +470: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +471: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +472: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +473: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +474: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +475: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +476: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +477: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +478: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +479: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +480: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +481: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +482: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:18 +483: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:19 +484: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:19 +485: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: nickname warning remains valid; Full Name stores completely and Details truncates/falls back
+00:19 +486: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +487: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +488: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +489: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +490: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +491: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +492: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: absurd light range is rejected accurately and custom species/value remain intact
+00:19 +493: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:19 +494: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:19 +495: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:20 +496: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:20 +497: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:20 +498: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:20 +499: C:/Users/Riley/plant-companion/app/test/store_snapshot_and_list_test.dart: 100-plant compact list uses fixed extent and preserves accessible fallback
+00:20 +500: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:20 +501: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:20 +502: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:20 +503: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:20 +504: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:20 +505: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +506: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +507: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +508: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +509: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +510: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: custom profile validates and saves configured target ranges
+00:21 +511: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: shared form save classifies DeviceAssignmentConflict and preserves entries for retry
+00:21 +512: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: shared form save classifies DeviceAssignmentConflict and preserves entries for retry
+00:22 +513: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: small screen and doubled text do not overflow in main screens
+00:22 +514: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: small screen and doubled text do not overflow in main screens
+00:23 +515: C:/Users/Riley/plant-companion/app/test/app_flow_test.dart: small screen and doubled text do not overflow in main screens
+00:23 +516: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: shared form save classifies PlantPersistenceFailure and preserves entries for retry
+00:24 +517: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: expanded inventory disables other-owned device, creates multiple candidates but saves only selected
+00:25 +518: C:/Users/Riley/plant-companion/app/test/interaction_and_validation_test.dart: shared form save classifies StateError and preserves entries for retry
+00:26 +519: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: cancel during candidate connection discards late result and consumes no durable IDs
+00:26 +520: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: cancel during candidate connection discards late result and consumes no durable IDs
+00:26 +521: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: failed Save keeps selected candidate/entries and creates no persistent device
+00:28 +522: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: Edit conflict keeps draft and explicit Reload Current Data refreshes the captured revision
+00:29 +523: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: Change Device opens same plant Edit, expanded and scrolled to inline controls
+00:29 +524: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: one-tap Delete plus reload failure unwinds safely with truthful committed notice
+00:30 +525: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: one-tap Delete plus scheduler failure unwinds safely with truthful committed notice
+00:31 +526: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: uncertain Add disables changes and checks same durable operation without duplicate creation
+00:32 +527: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: forward route slides from right and respects reduced motion: false
+00:32 +528: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: forward route slides from right and respects reduced motion: true
+00:33 +529: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: selection Edit Save returns to existing Home while Cancel returns to selection
+00:34 +530: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: Delete ignores draft candidate and deletes actual saved assignment in one tap
+00:35 +531: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: post-save acquisition failure navigates successfully with secondary notice and no fake sync
+00:36 +532: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: post-save reload failure does not leave a duplicate-Add retry control
+00:38 +533: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: lower field focus and validation stay above keyboard; Save remains reachable
+00:39 +534: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: progress tracks actual extent when inline inventory expands
+00:39 +535: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: no-op Edit preserves exact Celsius ranges despite rounded Fahrenheit display
+00:40 +536: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: narrow valid temperature ranges retain distinct Fahrenheit inputs and allow exact no-op Save
+00:40 +537: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: deleted plant conflict retains draft and cannot recreate target; explicit reload safely leaves
+00:41 +538: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: Edit Delete/Save controls grow without clipping at text2: Size(320.0, 640.0)
+00:41 +539: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: Edit Delete/Save controls grow without clipping at text2: Size(1440.0, 900.0)
+00:42 +540: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 320.0×640.0 text1.0: fixed shell, long text and reachable Save
+00:42 +541: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 320.0×640.0 text1.3: fixed shell, long text and reachable Save
+00:43 +542: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 320.0×640.0 text2.0: fixed shell, long text and reachable Save
+00:43 +543: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 360.0×800.0 text1.0: fixed shell, long text and reachable Save
+00:43 +544: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 360.0×800.0 text1.3: fixed shell, long text and reachable Save
+00:44 +545: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 360.0×800.0 text2.0: fixed shell, long text and reachable Save
+00:44 +546: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 390.0×844.0 text1.0: fixed shell, long text and reachable Save
+00:44 +547: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 390.0×844.0 text1.3: fixed shell, long text and reachable Save
+00:45 +548: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 390.0×844.0 text2.0: fixed shell, long text and reachable Save
+00:45 +549: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 430.0×925.0 text1.0: fixed shell, long text and reachable Save
+00:45 +550: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 430.0×925.0 text1.3: fixed shell, long text and reachable Save
+00:46 +551: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 430.0×925.0 text2.0: fixed shell, long text and reachable Save
+00:46 +552: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 480.0×960.0 text1.0: fixed shell, long text and reachable Save
+00:47 +553: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 480.0×960.0 text1.3: fixed shell, long text and reachable Save
+00:47 +554: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 480.0×960.0 text2.0: fixed shell, long text and reachable Save
+00:47 +555: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 768.0×1024.0 text1.0: fixed shell, long text and reachable Save
+00:48 +556: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 768.0×1024.0 text1.3: fixed shell, long text and reachable Save
+00:48 +557: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 768.0×1024.0 text2.0: fixed shell, long text and reachable Save
+00:48 +558: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 1440.0×900.0 text1.0: fixed shell, long text and reachable Save
+00:49 +559: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 1440.0×900.0 text1.3: fixed shell, long text and reachable Save
+00:49 +560: C:/Users/Riley/plant-companion/app/test/plant_form_widget_test.dart: form 1440.0×900.0 text2.0: fixed shell, long text and reachable Save
+00:50 +561: All tests passed!

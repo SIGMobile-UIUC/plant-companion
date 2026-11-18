@@ -10,13 +10,16 @@ import '../services/clock.dart';
 import '../services/fake_sensor_repository.dart';
 import '../services/plant_repository.dart';
 import '../services/reading_scheduler.dart';
+import '../ble/ble_sync_service.dart';
 
 class PlantStore extends ChangeNotifier {
   PlantStore({
     required this.persistence,
     FakeSensorRepository? repository,
     this.clock = const SystemClock(),
+    this.ble,
   }) {
+    ble?.onChanged = reload;
     this.repository =
         repository ?? FakeSensorRepository(inventory: persistence.loadDevices);
     scheduler = ReadingScheduler(
@@ -31,6 +34,7 @@ class PlantStore extends ChangeNotifier {
 
   final PlantRepository persistence;
   final Clock clock;
+  final BleSyncService? ble;
   late final FakeSensorRepository repository;
   late final ReadingScheduler scheduler;
   late final Future<void> initialized;
@@ -95,9 +99,33 @@ class PlantStore extends ChangeNotifier {
 
   List<Plant> get plants => _plants;
   List<Device> get devices => _deviceList;
-  Future<List<Device>> discoverDevices() => repository.discoverDevices();
-  Future<Device> prepareDevice(Device device) =>
-      scheduler.prepareConnection(device, repository);
+  Future<List<Device>> discoverDevices() async {
+    final local = await repository.discoverDevices();
+    final physical = await ble?.discover() ?? <Device>[];
+    final merged = {for (final d in local) d.id: d};
+    for (final d in physical) {
+      final saved = merged[d.id];
+      merged[d.id] = Device(
+        id: d.id,
+        name: d.name,
+        isConnected: false,
+        isPhysical: true,
+        platformHint: d.platformHint,
+        createdAt: saved?.createdAt,
+        displayOrdinal: saved?.displayOrdinal ?? 0,
+        revision: saved?.revision ?? 0,
+      );
+    }
+    return List.unmodifiable(merged.values);
+  }
+
+  Future<Device> prepareDevice(Device device) => device.isPhysical
+      ? (ble?.prepare(device) ??
+            Future.error(
+              StateError('Physical BLE requires the iOS or Android app.'),
+            ))
+      : scheduler.prepareConnection(device, repository);
+  String? deviceMessage(String id) => ble?.messages[id];
   Plant? findPlant(String id) {
     final matches = _plants.where((p) => p.id == id);
     return matches.isEmpty ? null : matches.first;
@@ -152,6 +180,16 @@ class PlantStore extends ChangeNotifier {
     return error;
   }
 
+  Future<Object?> _bleAssignmentsChanged() async {
+    try {
+      await ble?.assignmentsChanged();
+      return null;
+    } catch (e) {
+      _recordError(e);
+      return e;
+    }
+  }
+
   Future<PlantCommitResult> saveForm(
     PlantFormDraft draft, {
     String? plantId,
@@ -194,14 +232,20 @@ class PlantStore extends ChangeNotifier {
     if (error != null) issue = PlantPostCommitIssue.reload;
     if (receipt.needsConnectionPacket) {
       try {
-        final result = await scheduler.refreshAssigned(
-          receipt.plantId,
-          repository,
-          expectedDevice: receipt.assignedDevice,
-          connectionOrigin: true,
-          simulationMode: SimulationMode.environment,
-          rearm: false,
-        );
+        final result = receipt.assignedDevice?.isPhysical == true
+            ? await _refreshPhysical(
+                receipt.plantId,
+                receipt.assignedDevice!,
+                refresh: false,
+              )
+            : await scheduler.refreshAssigned(
+                receipt.plantId,
+                repository,
+                expectedDevice: receipt.assignedDevice,
+                connectionOrigin: true,
+                simulationMode: SimulationMode.environment,
+                rearm: false,
+              );
         issue ??= switch (result) {
           RefreshResult.updatedPublicationFailed => PlantPostCommitIssue.reload,
           RefreshResult.updatedSchedulerFailed =>
@@ -221,6 +265,11 @@ class PlantStore extends ChangeNotifier {
       }
     }
     final timerError = await scheduler.assignmentsChanged();
+    final bleError = await _bleAssignmentsChanged();
+    if (bleError != null) {
+      error ??= bleError;
+      issue ??= PlantPostCommitIssue.connection;
+    }
     if (timerError != null) {
       error ??= timerError;
       issue ??= PlantPostCommitIssue.scheduler;
@@ -286,10 +335,13 @@ class PlantStore extends ChangeNotifier {
     if (!_disposed) notifyListeners();
     final reloadError = await _reloadCommitted();
     final timerError = await scheduler.assignmentsChanged();
+    final bleError = await _bleAssignmentsChanged();
     final issue = reloadError != null
         ? PlantPostCommitIssue.reload
         : timerError != null
         ? PlantPostCommitIssue.scheduler
+        : bleError != null
+        ? PlantPostCommitIssue.connection
         : null;
     final result = PlantCommitResult(
       issue == null
@@ -297,7 +349,7 @@ class PlantStore extends ChangeNotifier {
           : PlantCommitStatus.committedWithWarning,
       plantId: id,
       issue: issue,
-      error: reloadError ?? timerError,
+      error: reloadError ?? timerError ?? bleError,
       deletion: true,
     );
     if (issue != null) {
@@ -357,6 +409,7 @@ class PlantStore extends ChangeNotifier {
       final plant = findPlant(id);
       final captured = plant == null ? null : deviceFor(plant);
       if (captured == null) return RefreshResult.noDevice;
+      if (captured.isPhysical) return await _refreshPhysical(id, captured);
       return await scheduler.refreshAssigned(
         id,
         repository,
@@ -369,6 +422,23 @@ class PlantStore extends ChangeNotifier {
     } finally {
       _refreshing.remove(id);
       if (!_disposed) notifyListeners();
+    }
+  }
+
+  Future<RefreshResult> _refreshPhysical(
+    String id,
+    Device device, {
+    bool refresh = true,
+  }) async {
+    try {
+      if (ble == null) {
+        throw StateError('Physical BLE requires the iOS or Android app.');
+      }
+      await ble!.synchronize(id, device, refresh: refresh);
+      return RefreshResult.updated;
+    } catch (e) {
+      lastError = e;
+      return RefreshResult.acquisitionFailed;
     }
   }
 
@@ -394,16 +464,23 @@ class PlantStore extends ChangeNotifier {
   Future<void> resume() async {
     await scheduler.resume();
     await reload();
+    await ble?.resume();
   }
 
-  void pause() => scheduler.pause();
+  void pause() {
+    scheduler.pause();
+    ble?.pause();
+  }
 
   @override
   void dispose() {
     _disposed = true;
     _freshnessTimer?.cancel();
     scheduler.dispose();
-    unawaited(persistence.close());
+    unawaited(() async {
+      await ble?.dispose();
+      await persistence.close();
+    }());
     super.dispose();
   }
 }

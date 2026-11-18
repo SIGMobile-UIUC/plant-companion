@@ -6,20 +6,25 @@ import 'screens/my_plants_screen.dart';
 import 'state/plant_store.dart';
 import 'theme/app_theme.dart';
 import 'widgets/focus_visibility.dart';
+import 'dart:async';
+import 'ble/ble_sync_service.dart';
+import 'ble/ble_transport_factory.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final persistence = SqlitePlantRepository(openAppDatabase());
   final store = PlantStore(
-    persistence: SqlitePlantRepository(openAppDatabase()),
+    persistence: persistence,
+    ble: BleSyncService(persistence, createBleTransport()),
   );
   await store.initialized;
-  await store.resume();
   runApp(
     ChangeNotifierProvider.value(
       value: store,
       child: const PlantCompanionApp(),
     ),
   );
+  unawaited(store.resume());
 }
 
 class PlantCompanionApp extends StatefulWidget {

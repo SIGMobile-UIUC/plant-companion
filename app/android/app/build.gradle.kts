@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "org.sigmobile.plant_companion"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 37 // Required by reactive_ble_mobile 5.6.0.
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
